@@ -1,0 +1,113 @@
+
+
+@import "normalize.scss";
+
+@import "components/_global.scss";
+@import "helpars/_placeholders.scss";
+
+@import "components/_link.scss"; // 链接
+
+@import "components/_icon.scss"; // 图标
+@import "components/_buttons.scss"; // 按钮
+@import "components/_icon-bar.scss"; // 图标条
+@import "components/_accordion.scss"; // 手风琴
+@import "components/_menu.scss"; // 菜单
+@import "components/_toolbar.scss"; // 工具表
+
+
+// 对平台页面的布局id定位
+
+$side-width: 230px; // 全局侧边栏 - 存放accordion
+$info-width: 290px; // 信息容器 - 存放information
+$side-hander-top: 20px; // 侧边栏距上
+$side-info-btn-top: 14px; // 侧边栏距上
+
+$side-hander-height: 100px; // 侧边栏头高度控制
+$hander-height: 78px; // 整体头
+$footer-height: 32px; // 切换条
+
+
+#plat-main {
+  height: 100%;
+  background-color: #f5f7f9;
+
+  @at-root #plat-side {
+    width: $side-width;
+    height: 100%;
+    float: left;
+    padding-top: $side-hander-height;
+    background-color: $side-bg-color;
+
+    @at-root #side-hander {
+      height: $side-hander-height;
+      padding-top: $side-hander-top;
+      margin-top: -$side-hander-height;
+      text-align: center;
+
+      /* info按钮 */
+      .info {
+        margin-top: $side-info-btn-top;
+      }
+    }
+
+    @at-root #side-container {
+      height: 100%;
+    }
+  }
+
+  // 汉堡
+  @at-root #plat-sidehook {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #ffa5a0;
+  }
+  // 主菜单
+  @at-root #plat-menu {
+    display: inline-block;
+    height: 32px;
+    margin: 6px 0 0 20px;
+    position: absolute;
+  }
+
+  // 工具条
+  @at-root #table-toolbar {
+    padding-left: 60px;
+  }
+
+  @at-root #plat-content {
+    height: 100%;
+    padding-top: $hander-height;
+    padding-bottom: $footer-height;
+    margin-left: $side-width;
+
+    @at-root #plat-hander {
+      height: $hander-height;
+      margin-top: -$hander-height;
+    }
+
+    @at-root #plat-info {
+      height: 100%;
+      width: $info-width;
+      float: right;
+    }
+
+    @at-root #plat-container {
+      height: 100%;
+    }
+
+    @at-root #plat-footer {
+      height: $footer-height;
+      margin-bottom: -$footer-height;
+    }
+  }
+}
+
+// div {
+//   outline: 1px solid orange;
+// }
+// body {
+//   border: 1px solid red;
+// }
+.that {
+  border: 1px solid red;
+}

@@ -1,0 +1,317 @@
+@import "global";
+// 按钮定义
+
+// 左右内边距控制大小
+$button-tny: rem-calc(15) !default; // 小号 2字 间4 64px  高 28px
+$button-sml: rem-calc(19) !default; // 正常 2字 间4 72px  高 28px
+$button-lrg: rem-calc(43) !default; // 大号 4字 间2 150px 高 32px
+//$button-lrg: rem-calc(21) !default; // 特大号
+
+// 控制显示属性
+$button-display: inline-block !default;
+$button-line-height: rem-calc(26) !default;
+$button-letter-spacing: rem-calc(4) !default;
+
+// 控制按钮文本样式
+$button-font-size: rem-calc(14) !default; // 正常
+$button-font-family: $body-font-family !default;
+$button-font-weight: $font-weight-normal !default;
+$button-font-align: center !default;
+$button-font-color: $white !default;
+$button-font-color-alt: $base-font-color !default;
+
+// 控制悬浮透明度
+$button-hover-bg-opacity: .9 !default;
+$button-active-color-opacity: .8 !default;
+
+// 控制按钮边框样式
+$button-border-width: 1px !default;
+$button-border-style: solid !default;
+
+// 控制默认圆角
+$button-radius: 2px !default;
+
+// 默认禁用样式控制
+$button-disabled-opacity: .8 !default;
+$button-disabled-color-opacity: .5 !default;
+$button-disabled-cursor: $cursor-default-value !default;
+
+// 颜色控制
+$button-bg-color: $primary-color !default;
+$button-bg-hover: scale-color($primary-color, $lightness: -20%); // 平滑
+$button-border-color: adjust-color($primary-color, $lightness: 15%);
+
+$button-secondary-bg-color: $secondary-color;
+$button-secondary-bg-hover: rgba($button-secondary-bg-color, .6);
+$button-secondary-border-color: #A3A4A5;
+
+$button-alert-bg-color: adjust-color($alert-color, $lightness: 15%);
+$button-alert-bg-hover: rgba($button-alert-bg-color, $button-hover-bg-opacity);
+$button-alert-border-color: $alert-color;
+
+$button-info-bg-color: $primary-color;
+$button-info-bg-hover: $primary-color;
+$button-info-border-color: adjust-color($primary-color, $lightness: 15%);
+$button-disabled-info-bg-color: #636473;
+$button-disabled-info-border-color: hsl(0, 0%, 20%);
+
+$button-searchIndic-bg-color: #373737;
+$button-searchIndic-bg-color-hover: #373737;
+$button-searchIndic-border-color: hsl(0, 0%, 27%);
+$button-searchIndic-font-color: rgba($white, .6);;
+
+// 创建一个基础按钮的样式
+// $style - 是否添加样式
+// $display - 控制显示方式. Default: $button-display || inline-block
+@mixin button-base ($style:true, $display:$button-display) {
+  @if $style {
+    position: relative;
+    margin: 0;
+    line-height: normal;
+    border-width: $button-border-width;
+    border-style: $button-border-style;
+    font-family: $button-font-family;
+    font-weight: $button-font-weight;
+    text-decoration: none;
+    text-align: $button-font-align;
+    cursor: $cursor-pointer-value;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius:0;
+    outline: 0;
+  }
+  @if $display { display: $display; }
+}
+
+// 控制按钮尺寸的混入
+// $padding - 左右内边距的值
+// $spacing - 文字间隔
+// $line-height - 用行高控制高度
+// $full-width - 是否宽度占满容器
+@mixin button-size (
+  $padding:$button-sml,
+  $spacing:$button-letter-spacing,
+  $line-height:$button-line-height,
+  $full-width:false) {
+ // 内边距控制宽度,行高控制高度
+  @if $padding {
+    padding-top: 0;
+    padding-left: $padding;
+    padding-bottom: 0;
+    padding-right: $padding - $spacing;
+
+    font-size: $button-font-size;
+    letter-spacing: $spacing;
+    line-height: $line-height;
+  }
+
+  // 创建一个占满父宽度的按钮
+  @if $full-width {
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+}
+
+// 控制按钮的样式
+// $bg - 不为空时会对bg-hover以及border-color进行计算. Default: $button-bg-color
+// $bg-hover - null时会根据bg的颜色平滑提升10%亮度
+// $border-color - null时会根据bg的颜色平滑提升10%亮度
+// $color-active - 激活下字体的颜色. Default: hover下字体颜色的.8透明度
+// $disabled-color-opacity - 禁用下的字体透明度.
+// $active - 是否添加激活伪类
+// $disabled - 控制禁用样式,重置伪类样式
+// #radius - 控制圆角. Options: ture(默认按钮圆角), false, px
+@mixin button-style (
+  $bg:$button-bg-color,
+  $bg-hover:null,
+  $border-color:null,
+  $color-active:null,
+  $disabled-color-opacity:null,
+  $active:false,
+  $disabled:false,
+  $radius:false) {
+
+  // 激活下需要用,提升一下作用域
+  $bg-hover-lightness: 0;
+
+  @if $bg {
+
+    // 默认生成一个平滑的bg-hover颜色
+    @if $bg-hover == null {
+      $bg-hover: if($bg == $button-bg-color,
+        $button-bg-hover, scale-color($bg, $lightness: 10%));
+    }
+
+    // 默认生成一个平滑的border-color颜色
+    @if $border-color == null {
+      $border-color: if($bg == $button-bg-color, $button-border-color,
+        scale-color($bg, $lightness: 10%));
+    }
+
+    // 通过背景亮度控制字体颜色
+    $bg-lightness: lightness($bg);
+    $bg-hover-lightness: lightness($bg-hover);
+
+    color: if($bg-lightness > 85%, $button-font-color-alt, $button-font-color);
+
+    background-color: $bg;
+    border-color: $border-color;
+    &:hover {
+      background-color: $bg-hover;
+      color: if($bg-hover-lightness > 85%, $button-font-color-alt, $button-font-color);
+    }
+  }
+
+  // 控制添加激活状系的按钮
+  @if $active {
+    &:active {
+      $font-color: if($bg-hover-lightness > 85%,
+        $button-font-color-alt, $button-font-color);
+      $color-active: if($color-active == null,
+        rgba($font-color, $button-active-color-opacity), $color-active);
+      color: $color-active;
+    }
+  }
+
+  // 控制创建禁用的按钮,关闭所有状态
+  @if $disabled {
+    $font-color: if($bg-hover-lightness > 85%,
+      $button-font-color-alt, $button-font-color);
+
+    // 判断是控制透明度还是字体颜色,这设计规律我也是醉了
+    @if ($disabled-color-opacity != null) {
+      opacity: 1;
+      $font-color: rgba($font-color, $disabled-color-opacity);
+    } @else {
+      opacity: $button-disabled-opacity;
+    }
+
+    cursor: $button-disabled-cursor;
+    box-shadow: none;
+    color: $font-color;
+    &:hover {
+      color: $font-color;
+      background-color: $bg;
+    }
+    &:active { color: $font-color; }
+  }
+
+  // 创建圆角吗
+  @if $radius == true { @include radius($button-radius); }
+  @else if $radius { @include radius($radius); }
+}
+
+@include exports("button") {
+
+  .hamburger {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    cursor: pointer;
+
+    @include hamburger(
+      $width:18px, $thickness:1px,
+      $top:13px, $left:11px,
+      $gap:6px, $color:$white,
+      $offcanvas:true);
+
+    &::after {
+      display: inline-block;
+    }
+  }
+
+  button, .button {
+    @include button-base;
+    @include button-size;
+    @include button-style($radius: true);
+
+    @include single-transition(background-color);
+
+    &.tiny { @include button-size($padding:$button-tny); }
+    &.large {
+      @include button-size($padding:$button-lrg,
+        $spacing:rem-calc(2), $line-height:30px);
+    }
+    &.expand {
+      @include button-size($spacing:rem-calc(2), $line-height:34px, $full-width:true);
+    }
+
+    &.secondary {
+      @include button-style(
+        $bg:$button-secondary-bg-color,
+        $bg-hover:$button-secondary-bg-hover,
+        $border-color:$button-secondary-border-color,
+        $active:true);
+    }
+
+    &.alert {
+      @include button-style(
+        $bg:$button-alert-bg-color,
+        $bg-hover:$button-alert-bg-hover,
+        $border-color:$button-alert-border-color,
+        $active:true);
+    }
+
+    &.info {
+      @include button-style (
+        $bg:$button-info-bg-color,
+        $bg-hover:$button-info-bg-hover,
+        $border-color:$button-info-border-color,
+        $radius: 4px,
+        $active:true);
+    }
+
+    &.searchindic {
+      @include button-style(
+        $bg:$button-searchIndic-bg-color,
+        $bg-hover:$button-searchIndic-bg-color-hover,
+        $border-color:$button-searchIndic-border-color,
+        $radius: 0);
+      border-left: 0;
+      border-right: 0;
+      color: $button-searchIndic-font-color;
+
+      &:hover { color: $button-searchIndic-font-color; }
+    }
+
+    &.disabled, &[disabled]{
+      @include button-style($disabled:true);
+
+      &.secondary {
+        @include button-style(
+          $bg:$button-secondary-bg-color,
+          $border-color:$button-secondary-border-color,
+          $disabled-color-opacity:$button-disabled-color-opacity,
+          $disabled:true);
+      }
+
+      &.alert {
+        @include button-style(
+          $bg:$button-alert-bg-color,
+          $border-color:$button-alert-border-color,
+          $disabled-color-opacity:$button-disabled-color-opacity,
+          $disabled:true);
+      }
+
+      &.info {
+        @include button-style(
+          $bg:$button-disabled-info-bg-color,
+          $border-color:$button-disabled-info-border-color,
+          $disabled-color-opacity:.6,
+          $disabled:true);
+      }
+
+      &.searchindic {
+        @include button-style(
+          $bg:$button-searchIndic-bg-color,
+          $border-color:$button-searchIndic-border-color,
+          $disabled-color-opacity:$button-disabled-color-opacity,
+          $disabled:true);
+      }
+    }
+
+    //firefox 2px fix
+    button::-moz-focus-inner {border:0; padding:0;}
+  }
+}

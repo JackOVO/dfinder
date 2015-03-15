@@ -1,0 +1,183 @@
+@import "global";
+
+$icon-base-width: 12px !default;
+$icon-base-height: 12px !default;
+$icon-m-square: 16px !default; // 原谅我蹩脚的英语水平,我在努力学的..
+$icon-base-bg-color: green;
+
+$icon-sprite-key: "icon-collecion";
+
+// 图片路径的映射
+$icon-image-map: (
+  "row": "../icons/row.png",
+  "row-hover": "../icons/row-hover.png",
+  "arrow": "../icons/arrow.png",
+  "search": "../icons/add-search.png",
+  "icon-collecion": "../icons/icon-collecion.png"
+);
+
+// 创建一个默认的图标样式
+@mixin icon-base () {
+  display: inline-block;
+}
+
+// 创建一个伪元素图标,用伪元素背景显示
+@mixin icon-before (
+  $width:$icon-base-width,
+  $height:$icon-base-height,
+  $square:null,
+  $img-key:null, $hover-key:null,
+  $hover:false, $margin:false) {
+
+  &:before {
+    content: ''; // ?
+    @include icon-base;
+    @include icon-size($width, $height, $square);
+
+    @if ($img-key != null) {
+      @include icon-image($img-key, $hover-key, $hover);
+    }
+
+    @if ($margin != false) {
+      margin: $margin;
+    }
+  }
+}
+
+// 控制图标大小
+// $width - 手动控制的宽度. Default: $icon-base-width || 12px
+// $height - 手动控制的高度. Default: $icon-base-height || 12px
+// $square - 正方形控制,权重比上面的高.
+@mixin icon-size (
+  $width:$icon-base-width,
+  $height:$icon-base-height,
+  $square:null) {
+
+  @if ($square != null) {
+    $width: $square;
+    $height: $square;
+  }
+  width: $width;
+  height: $height;
+}
+
+// 图标容器
+// $width: 控制宽度可以显示的宽度
+// $height: 控制容器可以显示的高度
+@mixin icon-container ($width: 16px, $height: 16px) {
+  display: block;
+  width: $width;
+  height: $height;
+  position: relative;
+  overflow: hidden;
+}
+
+
+// 填充icon的图像
+// $img-key - 会根据map寻找相应的icon路径.
+// $hover-key - hover状态下icon路径的映射,有默认的key加工规则.
+// $hover - 是否添加hover状态下的改变.
+@mixin icon-image ($img-key:null, $hover-key:null, $hover:false, $repeat:no-repeat) {
+  @if $img-key {
+    $img-url: map-get($icon-image-map, $img-key);
+    background-image: url($img-url);
+    background-repeat: $repeat;
+
+    @if ($hover == true) {
+      $hover-img-url: if($hover-key != null,
+        map-get($icon-image-map, $hover-key),
+        map-get($icon-image-map, $img-key + "-hover"));
+      &:hover {
+        background-image: url($hover-img-url);
+      }
+    }
+  } @else {
+    background-color: $icon-base-bg-color;
+  }
+}
+
+// 雪碧图填充icon图像
+// $img-key - 雪碧图的key. Default:
+// $img-posi - 雪碧图定位
+// $img-hover-posi - 悬浮定位
+// $repeat - 平铺控制
+@mixin icon-sprite (
+  $img-key:$icon-sprite-key,
+  $img-posi:(0, 0),
+  $img-hover-posi:null,
+  $repeat:no-repeat) {
+
+  @if ($img-key != false) {
+    $collecion-url: map-get($icon-image-map, $img-key);
+    background-image: url($collecion-url);
+    background-repeat: $repeat;
+  }
+
+  background-position: nth($img-posi, 1) nth($img-posi, 2); // icon-collecion
+
+  @if ($img-hover-posi != null) {
+    &:hover {
+      background-position: nth($img-hover-posi, 1) nth($img-hover-posi, 2);
+    }
+  }
+}
+
+// 背景伪元素定位,通过对伪元素的定位,和上层的overflow来显示图片
+@mixin icon-before-posi (
+  $img-key:$icon-sprite-key,
+  $top: 0,
+  $left: 0) {
+
+  position: absolute;
+  top: $top;
+  left: $left;
+  
+  &:before {
+    $collecion-url: map-get($icon-image-map, $img-key);
+    content: url($collecion-url);
+    opacity: .7;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+
+
+@include exports("icon") {
+  .icon {
+    @include icon-size;
+    // @include icon-image;
+
+    @include single-transition(background-image);
+
+    &.row, &.col { @include icon-image($img-key: "row", $hover: true); }
+    &.col { @include rotate2d(90deg); }
+
+    &.remove {
+      @include icon-size($square:$icon-m-square);
+      @include icon-sprite($img-posi:(-123px, -87px), $img-hover-posi:(-144px, -87px));
+    }
+
+
+
+    // &.right-arrow {
+    //   @include icon-sprite($img-key: "arrow", $img-posi:(2px, 5px));
+    //   @include rotate2d(-90deg);
+    // }
+
+  }
+
+  .icon-open { @include icon-before-posi($top: -24px, $left: -19px); }
+  .icon-refresh { @include icon-before-posi($top: -24px, $left: -53px); }
+  .icon-download { @include icon-before-posi($top: -24px, $left: -88px); }
+  .icon-arrow-down { @include icon-before-posi($top: 0, $left: 6px); }
+
+  .icon-bf-search {
+    @include icon-before(
+      $square: $icon-m-square,
+      $img-key: "search",
+      $margin: 0 10px -2px 0);
+  }
+}

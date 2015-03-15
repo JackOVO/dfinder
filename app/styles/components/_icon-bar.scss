@@ -1,0 +1,42 @@
+@import "global";
+
+$icon-bar-icon-size: rem-calc(12); // 用内边距控制i尺寸, 除2
+$icon-bar-item-padding: rem-calc(6); // 默认的项大小
+
+// 垂直定位 在别处组件应用问题?
+// $height - 自身的高
+// $left - 右固定
+// $right - 左固定
+@mixin icon-bar-position(
+  $height: $icon-bar-icon-size,
+  $left: false,
+  $right: false) {
+
+  position: absolute;
+  top: 50%;
+  margin-top: -($height / 2);
+
+  @if $left { left: $left; }
+  @if $right { right: $right; }
+}
+
+@include exports("icon-bar") {
+  .icon-bar {
+    display: inline-block;
+    line-height: 1;
+    font-size: 0;
+
+    & > * {
+      display: inline-block;
+      padding: $icon-bar-item-padding;
+    }
+    & > i {
+      vertical-align: middle;
+      cursor: $cursor-pointer-value;
+
+      &:before, &:after {
+        cursor: $cursor-auto-value;
+      }
+    }
+  }
+}
