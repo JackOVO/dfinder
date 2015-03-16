@@ -2,61 +2,28 @@
 
 $icon-base-width: 12px !default;
 $icon-base-height: 12px !default;
-$icon-m-square: 16px !default; // 原谅我蹩脚的英语水平,我在努力学的..
-$icon-base-bg-color: green;
+$icon-container-width: 16px !default;
+$icon-container-height: 16px !default;
+$icon-bg-color: green;
 
-$icon-sprite-key: "icon-collecion";
+$icon-collecion-key: "icon-collecion";
 
 // 图片路径的映射
 $icon-image-map: (
   "row": "../icons/row.png",
-  "row-hover": "../icons/row-hover.png",
   "arrow": "../icons/arrow.png",
+  "arrow-min": "../icons/arrow-min.png",
   "search": "../icons/add-search.png",
+  "row-hover": "../icons/row-hover.png",
   "icon-collecion": "../icons/icon-collecion.png"
 );
-
-// 创建一个默认的图标样式
-@mixin icon-base () {
-  display: inline-block;
-}
-
-// 创建一个伪元素图标,用伪元素背景显示
-@mixin icon-before (
-  $width:$icon-base-width,
-  $height:$icon-base-height,
-  $square:null,
-  $img-key:null, $hover-key:null,
-  $hover:false, $margin:false) {
-
-  &:before {
-    content: ''; // ?
-    @include icon-base;
-    @include icon-size($width, $height, $square);
-
-    @if ($img-key != null) {
-      @include icon-image($img-key, $hover-key, $hover);
-    }
-
-    @if ($margin != false) {
-      margin: $margin;
-    }
-  }
-}
-
 // 控制图标大小
 // $width - 手动控制的宽度. Default: $icon-base-width || 12px
 // $height - 手动控制的高度. Default: $icon-base-height || 12px
-// $square - 正方形控制,权重比上面的高.
 @mixin icon-size (
   $width:$icon-base-width,
-  $height:$icon-base-height,
-  $square:null) {
+  $height:$icon-base-height) {
 
-  @if ($square != null) {
-    $width: $square;
-    $height: $square;
-  }
   width: $width;
   height: $height;
 }
@@ -64,7 +31,10 @@ $icon-image-map: (
 // 图标容器
 // $width: 控制宽度可以显示的宽度
 // $height: 控制容器可以显示的高度
-@mixin icon-container ($width: 16px, $height: 16px) {
+@mixin icon-container (
+  $width: $icon-container-width,
+  $height: $icon-container-height) {
+
   display: block;
   width: $width;
   height: $height;
@@ -72,112 +42,117 @@ $icon-image-map: (
   overflow: hidden;
 }
 
+// 图标定位
+// $top - 可能是背景的定位或者元素的定位(居上)
+// $left - 可能是背景的定位或者元素的定位(居右)
+@mixin icon-position ($img-posi:(0, 0), $position: null) {
+  @if ($position == "absolute") {
+    position: absolute;
+    top: nth($img-posi, 1);
+    left: nth($img-posi, 2);
+  } @else {
+    background-position: nth($img-posi, 1), nth($img-posi, 2);
+  }
+}
 
 // 填充icon的图像
 // $img-key - 会根据map寻找相应的icon路径.
-// $hover-key - hover状态下icon路径的映射,有默认的key加工规则.
-// $hover - 是否添加hover状态下的改变.
-@mixin icon-image ($img-key:null, $hover-key:null, $hover:false, $repeat:no-repeat) {
+// $repeat - 重复方向
+@mixin icon-image ($img-key:null) {
   @if $img-key {
     $img-url: map-get($icon-image-map, $img-key);
     background-image: url($img-url);
-    background-repeat: $repeat;
-
-    @if ($hover == true) {
-      $hover-img-url: if($hover-key != null,
-        map-get($icon-image-map, $hover-key),
-        map-get($icon-image-map, $img-key + "-hover"));
-      &:hover {
-        background-image: url($hover-img-url);
-      }
-    }
+    background-repeat: no-repeat;
   } @else {
-    background-color: $icon-base-bg-color;
+    background-color: $icon-bg-color;
   }
 }
 
-// 雪碧图填充icon图像
-// $img-key - 雪碧图的key. Default:
-// $img-posi - 雪碧图定位
-// $img-hover-posi - 悬浮定位
-// $repeat - 平铺控制
-@mixin icon-sprite (
-  $img-key:$icon-sprite-key,
-  $img-posi:(0, 0),
-  $img-hover-posi:null,
-  $repeat:no-repeat) {
 
-  @if ($img-key != false) {
-    $collecion-url: map-get($icon-image-map, $img-key);
-    background-image: url($collecion-url);
-    background-repeat: $repeat;
-  }
+// 创建一个默认的图标样式
+// $img-key - 图片路径映射键
+// $img-posi - 图片定位数组(0, 0)
+// $width - 可见宽度
+// $height - 可见高度
+@mixin icon-base (
+  $img-key: null,
+  $img-posi: (0, 0),
+  $width: $icon-base-width,
+  $height: $icon-base-height) {
 
-  background-position: nth($img-posi, 1) nth($img-posi, 2); // icon-collecion
+  display: inline-block;
+  @include icon-image($img-key);
+  @include icon-size($width, $height);
+  @include icon-position($img-posi);
 
-  @if ($img-hover-posi != null) {
-    &:hover {
-      background-position: nth($img-hover-posi, 1) nth($img-hover-posi, 2);
-    }
-  }
+  outline: 1px solid yellow;
 }
 
-// 背景伪元素定位,通过对伪元素的定位,和上层的overflow来显示图片
-@mixin icon-before-posi (
-  $img-key:$icon-sprite-key,
-  $top: 0,
-  $left: 0) {
+// 创建一个伪元素背景
+// $img-key - 图片路径映射键
+// $img-posi - 图片定位数组(0, 0)
+// $width - 可见宽度
+// $height - 可见高度
+@mixin icon-before (
+  $img-key: $icon-collecion-key,
+  $img-posi: (0, 0)) {
 
-  position: absolute;
-  top: $top;
-  left: $left;
-  
+  @include icon-position($img-posi, "absolute");
+
   &:before {
-    $collecion-url: map-get($icon-image-map, $img-key);
-    content: url($collecion-url);
-    opacity: .7;
-
-    &:hover {
-      opacity: 1;
+    @if ($img-key == null) {
+      content: '';
+    } @else {
+      $img-url: map-get($icon-image-map, $img-key);
+      content: url($img-url);
     }
+    display: inline-block;
   }
 }
-
-
 
 @include exports("icon") {
   .icon {
-    @include icon-size;
-    // @include icon-image;
 
     @include single-transition(background-image);
 
-    &.row, &.col { @include icon-image($img-key: "row", $hover: true); }
+    &.row, &.col {
+      @include icon-base($img-key: "row");
+      &:hover { @include icon-base($img-key: "row-hover"); }
+    }
     &.col { @include rotate2d(90deg); }
 
     &.remove {
-      @include icon-size($square:$icon-m-square);
-      @include icon-sprite($img-posi:(-123px, -87px), $img-hover-posi:(-144px, -87px));
+      @include icon-base( $img-posi:(-123px, -87px));
+      &:hover { @include icon-base($img-posi:(-144px, -87px)); }
     }
-
-
-
-    // &.right-arrow {
-    //   @include icon-sprite($img-key: "arrow", $img-posi:(2px, 5px));
-    //   @include rotate2d(-90deg);
-    // }
 
   }
 
-  .icon-open { @include icon-before-posi($top: -24px, $left: -19px); }
-  .icon-refresh { @include icon-before-posi($top: -24px, $left: -53px); }
-  .icon-download { @include icon-before-posi($top: -24px, $left: -88px); }
-  .icon-arrow-down { @include icon-before-posi($top: 0, $left: 6px); }
+  .icon-container {
+    @include icon-container;
+  }
 
-  .icon-bf-search {
-    @include icon-before(
-      $square: $icon-m-square,
-      $img-key: "search",
-      $margin: 0 10px -2px 0);
+  // 16 * 16
+  .icon-open { @include icon-before($img-posi:(-24px, -19px)); }
+  .icon-refresh { @include icon-before($img-posi:(-24px, -53px)); }
+  .icon-download { @include icon-before($img-posi:(-24px, -88px)); }
+  .icon-b { @include icon-before($img-posi:(-24px, -157px)); }
+  .icon-i { @include icon-before($img-posi:(-24px, -226px)); }
+  .icon-x { @include icon-before($img-posi:(-24px, -122px)); }
+  .icon-a { @include icon-before($img-posi:(-25px, -190px)); }
+  .icon-left { @include icon-before($img-posi:(-24px, -328px)); }
+  .icon-right { @include icon-before($img-posi:(-24px, -259px)); }
+  .icon-center { @include icon-before($img-posi:(-24px, -294px)); }
+  .icon-bg { @include icon-before($img-posi:(-55px, -259px)); }
+  .icon-filter { @include icon-before($img-posi:(-55px, -19px)); }
+  .icon-e { @include icon-before($img-posi:(-55px, -53px)); }
+  .icon-percentage { @include icon-before($img-posi:(-55px, -88px)); }
+  .icon-kp { @include icon-before($img-posi:(-55px, -157px)); }
+  .icon-kq { @include icon-before($img-posi:(-55px, -122px)); }
+  .icon-y { @include icon-before($img-posi:(-55px, -190px));}
+
+  .icon-arrow-down { @include icon-before($img-key: "arrow", $img-posi:(-7px, 0)); }
+  .icon-arrow-min-down {
+    @include icon-before($img-key: "arrow-min", $img-posi:(-9px, 0));
   }
 }

@@ -61,13 +61,13 @@ $menu-box-shadow-color: #E6E7E7;
 
     &.child:before { // 子项标示
       content: "";
-      display: inline-block;
-      width: 10px;
-      height: 10px;
       float: right;
       margin: 9px 3px 0 0;
 
-      @include icon-sprite($img-key: "arrow", $img-posi:(1px, 0));
+      @include icon-base(
+        $width: 10px, $height: 10px,
+        $img-key: "arrow",
+        $img-posi: (1px, 0));
       @include rotate2d(-90deg);
     }
 

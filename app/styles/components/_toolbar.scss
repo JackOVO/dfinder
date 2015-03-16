@@ -62,8 +62,8 @@ $toolbar-cut-color: #e3e5e7;
 // 按钮样式
 @mixin toolbar-btn-style (
   $border-color: $toolbar-btn-hover-color,
-  $bg-gradient-top: #f0f0f0,
-  $bg-gradient-bottom: #fafafa) {
+  $bg-gradient-top: #fafafa,
+  $bg-gradient-bottom: #f0f0f0) {
 
   border-color: $border-color;
   background-image: linear-gradient(to top, $bg-gradient-bottom, $bg-gradient-top);
@@ -90,17 +90,13 @@ $toolbar-cut-color: #e3e5e7;
   .toolbar-btn {
     @include toolbar-btn-base;
 
-      @include toolbar-btn-style;
+    opacity: .7;
+
     &:hover {
+      @include toolbar-btn-style;
+      opacity: 1;
     }
-
-    &:active {
-      box-shadow: inset 1px 1px 3px rgba(0,0,0, .25);
-    }
-
-    .icon-container {
-      @include icon-container($width: 16px, $height: 16px); //_icon.scss
-    }
+    &:active { box-shadow: inset 1px 1px 3px rgba(0,0,0, .25); }
 
     .icon-min-container {
       @include icon-container($width: 5px, $height: 16px); //_icon.scss
@@ -112,6 +108,38 @@ $toolbar-cut-color: #e3e5e7;
       font-size: 12px;
       line-height: 1.2;
     }
+  }
+
+  .toolbar-btn-group {
+    display: inline-block;
+    color: $black;
+
+    &:hover .toolbar-btn {
+      @include toolbar-btn-style;
+      opacity: 1;
+    }
+
+    .toolbar-btn:last-child { margin-left: -6px; }
+  }
+
+  .icon-acolor {
+    position: absolute;
+    left: 2px;
+    bottom: 0;
+    display: block;
+    width: 12px;
+    height: 3px;
+    background-color: red;
+  }
+
+  .icon-bgcolor {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    display: block;
+    width: 11px;
+    height: 3px;
+    background-color: red;
   }
 
 }
