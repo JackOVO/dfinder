@@ -14,8 +14,9 @@ $icon-image-map: (
   "arrow": "../icons/arrow.png",
   "arrow-min": "../icons/arrow-min.png",
   "search": "../icons/add-search.png",
+  "selected": "../icons/selected.png",
   "row-hover": "../icons/row-hover.png",
-  "icon-collecion": "../icons/icon-collecion.png"
+  "icon-collecion": "../icons/icon-collecion.png",
 );
 // 控制图标大小
 // $width - 手动控制的宽度. Default: $icon-base-width || 12px
@@ -84,8 +85,6 @@ $icon-image-map: (
   @include icon-image($img-key);
   @include icon-size($width, $height);
   @include icon-position($img-posi);
-
-  outline: 1px solid yellow;
 }
 
 // 创建一个伪元素背景
@@ -130,6 +129,11 @@ $icon-image-map: (
 
   .icon-container {
     @include icon-container;
+  }
+  .icon-brother {
+    display: inline-block;
+    width: 2px;
+    float: right;
   }
 
   // 16 * 16

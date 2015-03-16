@@ -92,11 +92,11 @@ $toolbar-cut-color: #e3e5e7;
 
     opacity: .7;
 
-    &:hover {
+    &:hover, &.hover {
       @include toolbar-btn-style;
       opacity: 1;
     }
-    &:active { box-shadow: inset 1px 1px 3px rgba(0,0,0, .25); }
+    &:active, &.active { box-shadow: inset 1px 1px 3px rgba(0,0,0, .25); }
 
     .icon-min-container {
       @include icon-container($width: 5px, $height: 16px); //_icon.scss
@@ -114,7 +114,7 @@ $toolbar-cut-color: #e3e5e7;
     display: inline-block;
     color: $black;
 
-    &:hover .toolbar-btn {
+    &:hover .toolbar-btn,  &.hover .toolbar-btn {
       @include toolbar-btn-style;
       opacity: 1;
     }
