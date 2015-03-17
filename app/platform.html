@@ -31,7 +31,7 @@
         <div id="plat-sidehook" class="hamburger">&nbsp;</div>
         <div id="plat-menu">
           <ul class="menu">
-            <li class="hover"><a href="#">文件</a>
+            <li><a href="#">文件</a>
               <ul>
                 <li><a href="#">新建工作簿</a></li>
                 <li class="group-line"></li>
@@ -83,9 +83,9 @@
             </span>
           </div>
           <span class="toolbar-cut"></span>
-          <div class="toolbar-btn-group">
+          <div class="toolbar-btn-group hover">
             <span class="toolbar-btn"><span class="font-container">12</span></span>
-            <span class="toolbar-btn">
+            <span class="toolbar-btn active">
               <span class="icon-min-container">
                 <span class="icon-arrow-min-down"></span>
               </span>
@@ -101,14 +101,14 @@
           <span class="toolbar-btn">
             <span class="icon-container"><span class="icon-x"></span></span>
           </span>
-          <div class="toolbar-btn-group">
+          <div class="toolbar-btn-group hover">
             <span class="toolbar-btn">
               <span class="icon-container">
                 <span class="icon-a"></span>
                 <span class="icon-acolor"></span>
               </span>
             </span>
-            <span class="toolbar-btn">
+            <span class="toolbar-btn active">
               <span class="icon-min-container">
                 <span class="icon-arrow-min-down"></span>
               </span>
@@ -139,7 +139,7 @@
             </span>
           </div>
           <span class="toolbar-cut"></span>
-          <span class="toolbar-btn" style="position: relative;">
+          <span class="toolbar-btn hover active" style="position: relative;">
             <span class="icon-container" style="width:22px;">
               <span class="icon-filter"></span>
             </span>
@@ -170,18 +170,88 @@
           </div>
         </div>
       </div>
-      <div id="plat-info">信息</div>
+      <div id="plat-info">
+        <button id="plat-info-sudo">收起</button class="plat-info-sudo">
+        <ul class="fiexible">
+          <li class="open">数据来源
+            <ul>
+              <li>文件来源</li>
+            </ul>
+          </li>
+          <li>被引用情况</li>
+        </ul>
+      </div>
       <div id="plat-container">容器<i class="icon right-drop3"></i></div>
-      <div id="plat-footer">低</div>
+      <div id="plat-footer">
+        <div class="tabs-item selected">
+          <span class="fn-fonthid">我是展开的选项卡</span><i class="icon close-min"></i>
+        </div><div class="tabs-item">
+          <span class="fn-fonthid">我是关闭的选项卡</span><i class="icon close-min"></i></div>
+      </div>
     </div>
     <!-- 平台内容结束 -->
   </div>
   <!-- 平台主体结束 -->
+
   <div class="dialog" style="top:72px;left:412px;width:120px;">
-    <div class="font-block font-selected">宋体</div>
-    <div class="font-block">微软雅黑</div>
-    <div class="font-block">楷体</div>
-    <div class="font-block">隶书</div>
+    <span class="font-block selected">宋体</span>
+    <span class="font-block">微软雅黑</span>
+    <span class="font-block">楷体</span>
+    <span class="font-block">隶书</span>
+  </div>
+
+  <div class="dialog" style="top:72px;left:532px;width:50px;">
+    <span class="font-block selected">10</span>
+    <span class="font-block">12</span>
+    <span class="font-block">14</span>
+    <span class="font-block">18</span>
+    <span class="font-block">24</span>
+  </div>
+
+  <div class="dialog color-container" style="top:72px;left:701px;">
+    <div class="color-group">
+      <i class="color-block selected" style="background-color: #FF0300;">
+      </i><i class="color-block" style="background-color: #FF6765;">
+      </i><i class="color-block" style="background-color: #FF9A9B;">
+      </i><i class="color-block" style="background-color: #FFCCCB;">
+      </i><i class="color-block last" style="background-color: #000000;"></i>
+    </div>
+    <div class="color-group">
+      <i class="color-block" style="background-color: #FE6E00;">
+      </i><i class="color-block" style="background-color: #FFAA65;">
+      </i><i class="color-block" style="background-color: #FFC698;">
+      </i><i class="color-block" style="background-color: #FEE3CB;">
+      </i><i class="color-block last" style="background-color: #666666;"></i>
+    </div>
+    <div class="color-group">
+      <i class="color-block" style="background-color:#30E845;">
+      </i><i class="color-block" style="background-color:#83F28F;">
+      </i><i class="color-block" style="background-color:#ADF7B5;">
+      </i><i class="color-block" style="background-color:#D5FCDA;">
+      </i><i class="color-block last" style="background-color:#999999;"></i>
+    </div>
+    <div class="color-group">
+      <i class="color-block" style="background-color:#00A0FE;">
+      </i><i class="color-block" style="background-color:#65C7FF;">
+      </i><i class="color-block" style="background-color:#98D9FF;">
+      </i><i class="color-block" style="background-color:#CBEDFF;">
+      </i><i class="color-block last" style="background-color:#CCCCCC;"></i>
+    </div>
+    <div class="color-group">
+      <i class="color-block" style="background-color:#9832E8;">
+      </i><i class="color-block" style="background-color:#C185F0;">
+      </i><i class="color-block" style="background-color:#D7AEF7;">
+      </i><i class="color-block" style="background-color:#EAD8FB;">
+      </i><i class="color-block color-border last" style="background-color:#FFF;"></i>
+    </div>
+    <span class="color-container-btn">自定义</span>
+  </div>
+
+  <div class="dialog" style="top:72px;left:894px;width:100px;">
+    <span class="font-block">空值</span>
+    <span class="font-block">非空值</span>
+    <span class="font-block">零值</span>
+    <span class="font-block">自定义</span>
   </div>
   <!-- 全局弹出块结束 -->
 </body>

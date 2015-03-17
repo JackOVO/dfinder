@@ -6,3 +6,9 @@
   vertical-align: middle;
   line-height: 0;
 }
+
+.fn-fonthid {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

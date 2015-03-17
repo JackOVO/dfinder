@@ -1,5 +1,4 @@
 
-
 @import "normalize.scss";
 
 @import "components/_global.scss";
@@ -14,6 +13,8 @@
 @import "components/_menu.scss"; // 菜单
 @import "components/_toolbar.scss"; // 工具表
 @import "components/_dialog.scss"; // 弹出框
+@import "components/_tabs.scss"; // 选项卡
+@import "components/_flexible.scss"; // 伸展...
 
 
 // 对平台页面的布局id定位
@@ -46,9 +47,7 @@ $footer-height: 32px; // 切换条
       text-align: center;
 
       /* info按钮 */
-      .info {
-        margin-top: $side-info-btn-top;
-      }
+      .info { margin-top: $side-info-btn-top; }
     }
 
     @at-root #side-container {
@@ -64,10 +63,10 @@ $footer-height: 32px; // 切换条
   }
   // 主菜单
   @at-root #plat-menu {
+    position: absolute;
     display: inline-block;
     height: 32px;
     margin: 6px 0 0 20px;
-    position: absolute;
   }
 
   // 工具条
@@ -87,9 +86,21 @@ $footer-height: 32px; // 切换条
     }
 
     @at-root #plat-info {
+      position: relative;
       height: 100%;
       width: $info-width;
       float: right;
+      border-left: 1px solid #A3A4A5;
+      background-color: #FEFEFE;
+
+      @at-root #plat-info-sudo {
+        @include button-size($padding: 6px, $spacing: 0, $line-height: 20px);
+        @include button-style($radius: 4px, $bg: #87C4FF);
+        position: absolute;
+        top: 5px;
+        right: 0;
+        font-size: 12px;
+      }
     }
 
     @at-root #plat-container {
@@ -98,7 +109,11 @@ $footer-height: 32px; // 切换条
 
     @at-root #plat-footer {
       height: $footer-height;
+      padding-left: 10px;
       margin-bottom: -$footer-height;
+      border-top: 1px solid #d3d7da;
+
+      overflow: hidden;
     }
   }
 }

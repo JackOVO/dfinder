@@ -2,16 +2,35 @@
 @import "icon";
 // 对话框样式
 
-$dialog-border-color: #d3d7d9 !default;
-$dialog-bg-color: #FEFEFE !default;
+$dialog-radius: 2px;
 
+// 框容器大小
+$dialog-padding-top: 5px;
+$dialog-padding-bottom: 5px;
+
+// 文字块字体定义
+$font-block-size: 14px;
+
+// 文字块大小控制
+$font-block-padding-top: 5px;
+$font-block-padding-bottom: 5px;
+$font-block-padding-left: 18px;
+
+// 颜色块大小控制
+$color-block-gap: 5px;
+
+// 颜色定义
+$dialog-border-color: #d3d7d9;
+$dialog-bg-color: #FEFEFE;
+$font-block-hover-bg-color: #f0f0f0;
+$color-border-color: #e8e8e8;
 
 @mixin dialog-base () {
   position: absolute;
   display: block;
-  padding: 5px 0 5px 0;
+  padding: $dialog-padding-top 0 $dialog-padding-bottom 0;
   border: 1px solid $dialog-border-color;
-  border-radius: 2px;
+  border-radius: $dialog-radius;
   background-color: $dialog-bg-color;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, .2);
 }
@@ -23,22 +42,63 @@ $dialog-bg-color: #FEFEFE !default;
   }
 
   .font-block {
+    display: block;
     position: relative;
-    padding: 5px 0 5px 20px;
-    font-size: 14px;
+    padding-left: $font-block-padding-left;
+    font-size: $font-block-size;
+    line-height: 24px;
     cursor: default;
-
-    &:hover {
-      background-color: #f0f0f0;
+    
+    &.selected:before {
+      content: '';
+      display: inline-block;
+      @include icon-size(10px, 8px);
+      @include icon-image($img-key: "selected");
+      @include icon-position((9px, 5px), "absolute");
     }
+
+    &:hover { background-color: $font-block-hover-bg-color; }
   }
 
-  .font-selected:before {
-    content: '';
-    display: inline-block;
+  .color-container {
+    padding: 9px;
+    line-height: 0;
+  }
+  .color-container-btn {
+    display: block;
+    width: 85px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
 
-    @include icon-size(10px, 8px);
-    @include icon-image($img-key: "selected");
-    @include icon-position((13px, 5px), "absolute");
+  .color-group { margin-bottom: $color-block-gap; }
+  .color-block {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: $color-block-gap;
+
+    &.color-border {
+      border: 1px solid $color-border-color;
+    }
+
+    &.selected:before {
+      content: '';
+      display: inline-block;
+      @include icon-size(10px, 8px);
+      @include icon-image($img-key: "selected");
+      @include icon-position((11px, 10px), "absolute");
+
+      filter: brightness(500%); // 高光大白
+    }
+
+    &.last {
+      margin-right: 0;
+      margin-left: $color-block-gap;
+    }
+
   }
 }

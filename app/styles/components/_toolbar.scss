@@ -42,7 +42,10 @@ $toolbar-cut-color: #e3e5e7;
 }
 
 // 工具条按钮
-// 
+// $margin-top - 工具栏按钮上外边距
+// $margin-bottom - 工具栏按钮下外边距
+// $padding - 工具栏按钮内扩展
+// $border-radius - 圆角度
 @mixin toolbar-btn-base (
   $margin-top: $toolbar-btn-margin-top,
   $margin-bottom: $toolbar-btn-margin-bottom,
@@ -59,7 +62,10 @@ $toolbar-cut-color: #e3e5e7;
   vertical-align: middle;
 }
 
-// 按钮样式
+// 按钮样式?
+// $border-color - 工具栏按钮边框颜色
+// $bg-gradient-top - 渐变上的颜色
+// $bg-gradient-bottom - 渐变下的颜色
 @mixin toolbar-btn-style (
   $border-color: $toolbar-btn-hover-color,
   $bg-gradient-top: #fafafa,
@@ -98,15 +104,17 @@ $toolbar-cut-color: #e3e5e7;
     }
     &:active, &.active { box-shadow: inset 1px 1px 3px rgba(0,0,0, .25); }
 
-    .icon-min-container {
-      @include icon-container($width: 5px, $height: 16px); //_icon.scss
-    }
+    &.disable {}
 
     .font-container {
       display: block;
       height: 16px;
       font-size: 12px;
       line-height: 1.2;
+    }
+
+    .icon-min-container {
+      @include icon-container($width: 5px, $height: 16px); //_icon.scss
     }
   }
 

@@ -13,11 +13,13 @@ $icon-image-map: (
   "row": "../icons/row.png",
   "arrow": "../icons/arrow.png",
   "arrow-min": "../icons/arrow-min.png",
+  "close-min": "../icons/close-min.png",
   "search": "../icons/add-search.png",
   "selected": "../icons/selected.png",
   "row-hover": "../icons/row-hover.png",
   "icon-collecion": "../icons/icon-collecion.png",
 );
+
 // 控制图标大小
 // $width - 手动控制的宽度. Default: $icon-base-width || 12px
 // $height - 手动控制的高度. Default: $icon-base-height || 12px
@@ -69,7 +71,6 @@ $icon-image-map: (
   }
 }
 
-
 // 创建一个默认的图标样式
 // $img-key - 图片路径映射键
 // $img-posi - 图片定位数组(0, 0)
@@ -85,6 +86,21 @@ $icon-image-map: (
   @include icon-image($img-key);
   @include icon-size($width, $height);
   @include icon-position($img-posi);
+}
+
+@mixin icon-before-b (
+  $img-key: $icon-collecion-key,
+  $img-posi: (0, 0)) {
+
+  &:before {
+    @if ($img-key == null) {
+      content: '';
+    } @else {
+      $img-url: map-get($icon-image-map, $img-key);
+      content: url($img-url);
+    }
+    display: inline-block;
+  }
 }
 
 // 创建一个伪元素背景
@@ -123,6 +139,10 @@ $icon-image-map: (
     &.remove {
       @include icon-base( $img-posi:(-123px, -87px));
       &:hover { @include icon-base($img-posi:(-144px, -87px)); }
+    }
+
+    &.close-min {
+      @include icon-base($width:9px, $height:8px, $img-key: "close-min");
     }
 
   }
