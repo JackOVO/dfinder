@@ -2,33 +2,52 @@
 @import "icon";
 // 伸缩列表
 
+$fiexible-drop-width: 7px;
+$fiexible-maring-left: 7px;
+$fiexible-margin-right: 0;
+
 @include exports("fiexible") {
 
   .fiexible {
-    padding: 0 20px 10px 10px;
-    outline: 1px solid red;
+
+    ul { padding: 0; margin: 0; }
 
     li {
-      padding: 0;
-      margin: 0;
+      padding: 0 0 0 
+        ($fiexible-maring-left + $fiexible-margin-right + $fiexible-drop-width);
+      margin-top: 10px;
       font-size: 14px;
       list-style: none;
-      outline: 1px solid yellow;
 
-      &.close {
-      
+      &.open, &.close {
+        &::before {
+          content: "";
+          position: relative;
+          top: -1px;
+          left: -($fiexible-maring-left + $fiexible-drop-width);
+          margin-right: -$fiexible-drop-width;
+          @include icon-base($img-key: "arrow", $height: 5px, $width: $fiexible-drop-width);
+        }
+
+        margin-top: 15px;
+        cursor: pointer;
+        color: #A2A3A4;
+      }
+      &.close::before {
+        top: -2px;
+        @include rotate2d(-90deg);
       }
 
-      &.open {
-        @include icon-before-b($img-key: "arrow");
-      }
-
-      > ul {
-        padding-left: 14px;
+      > a {
+        text-decoration: none;
+        color: $black;
       }
     }
 
-    > li {
+    > ul {
+      overflow: hidden;
+      > li > ul { padding-right: 20px; }
     }
   }
+
 }

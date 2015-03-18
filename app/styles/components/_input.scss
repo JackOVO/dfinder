@@ -1,0 +1,28 @@
+@import "global";
+// 输入定义
+
+
+@include exports("input") {
+
+  .checkbox {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, .8);
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 8px;
+      border: 1px solid $black;
+      background-color: $white;
+      cursor: default;
+
+      border-color: #8d939c;
+      background-color: #d9dedc;
+    }
+  }
+}

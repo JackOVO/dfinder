@@ -55,10 +55,10 @@ $button-info-border-color: adjust-color($primary-color, $lightness: 15%);
 $button-disabled-info-bg-color: #636473;
 $button-disabled-info-border-color: hsl(0, 0%, 20%);
 
-$button-searchIndic-bg-color: #373737;
-$button-searchIndic-bg-color-hover: #373737;
+$button-searchIndic-bg-color: #3B424A;
+$button-searchIndic-bg-color-hover: #3B424A;
 $button-searchIndic-border-color: hsl(0, 0%, 27%);
-$button-searchIndic-font-color: rgba($white, .6);;
+$button-searchIndic-font-color: rgba($white, .8);;
 
 // 创建一个基础按钮的样式
 // $style - 是否添加样式
@@ -273,6 +273,10 @@ $button-searchIndic-font-color: rgba($white, .6);;
       color: $button-searchIndic-font-color;
 
       &:hover { color: $button-searchIndic-font-color; }
+
+      &.icon-search-min:before {
+        margin: -2px 5px 0 0;
+      }
     }
 
     &.disabled, &[disabled]{
@@ -315,3 +319,12 @@ $button-searchIndic-font-color: rgba($white, .6);;
     button::-moz-focus-inner {border:0; padding:0;}
   }
 }
+
+// .cs:before {
+//   content: '';
+//   display: inline-block;
+//   width: 16px;
+//   height: 16px;
+//   background-color: green;
+//   vertical-align: middle;
+// }

@@ -14,7 +14,7 @@ $icon-image-map: (
   "arrow": "../icons/arrow.png",
   "arrow-min": "../icons/arrow-min.png",
   "close-min": "../icons/close-min.png",
-  "search": "../icons/add-search.png",
+  "search-min": "../icons/search-min.png",
   "selected": "../icons/selected.png",
   "row-hover": "../icons/row-hover.png",
   "icon-collecion": "../icons/icon-collecion.png",
@@ -54,14 +54,14 @@ $icon-image-map: (
     top: nth($img-posi, 1);
     left: nth($img-posi, 2);
   } @else {
-    background-position: nth($img-posi, 1), nth($img-posi, 2);
+    background-position: nth($img-posi, 1) nth($img-posi, 2);
   }
 }
 
 // 填充icon的图像
 // $img-key - 会根据map寻找相应的icon路径.
 // $repeat - 重复方向
-@mixin icon-image ($img-key:null) {
+@mixin icon-image ($img-key:$icon-collecion-key) {
   @if $img-key {
     $img-url: map-get($icon-image-map, $img-key);
     background-image: url($img-url);
@@ -88,10 +88,7 @@ $icon-image-map: (
   @include icon-position($img-posi);
 }
 
-@mixin icon-before-b (
-  $img-key: $icon-collecion-key,
-  $img-posi: (0, 0)) {
-
+@mixin icon-bf ($img-key: $icon-collecion-key) {
   &:before {
     @if ($img-key == null) {
       content: '';
@@ -137,8 +134,10 @@ $icon-image-map: (
     &.col { @include rotate2d(90deg); }
 
     &.remove {
-      @include icon-base( $img-posi:(-123px, -87px));
-      &:hover { @include icon-base($img-posi:(-144px, -87px)); }
+      @include icon-base($img-key:"icon-collecion", $img-posi:(-123px, -87px), $width: 16px, $height: 16px);
+      &:hover {
+        @include icon-base($img-key:"icon-collecion", $img-posi:(-144px, -87px), $width: 16px, $height: 16px);
+      }
     }
 
     &.close-min {
@@ -178,5 +177,12 @@ $icon-image-map: (
   .icon-arrow-down { @include icon-before($img-key: "arrow", $img-posi:(-7px, 0)); }
   .icon-arrow-min-down {
     @include icon-before($img-key: "arrow-min", $img-posi:(-9px, 0));
+  }
+  .icon-search-min::before {
+    content: '';
+    display: inline-block;
+    @include icon-size($width: 16px, $height: 16px);
+    @include icon-image($img-key: "search-min");
+    vertical-align: middle;
   }
 }
