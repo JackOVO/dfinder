@@ -183,6 +183,19 @@ $dialog-bottom-bg-color: #f0f0f0;
         width: 100%;
         font-size: 12px;
 
+
+        .highlight {
+          th, td {
+            padding-bottom: 14px;
+            border-top: 1px solid #d3d5d9;
+            border-bottom: 1px solid #d3d5d9;
+            background-color: $white;
+          }
+        }
+        .highlight-loft {
+          th, td { padding-bottom: 14px; }
+        } 
+
         th {
           width: 1px;
           padding-left: $dialog-header-padding-left;
@@ -194,7 +207,8 @@ $dialog-bottom-bg-color: #f0f0f0;
         }
 
         tr, td, th {
-          padding-top: 15px;
+          padding-top: 14px;
+          // outline: 1px solid red;
           // border: 1px solid red;
         }
       }
@@ -204,6 +218,7 @@ $dialog-bottom-bg-color: #f0f0f0;
     .dialog-bottom {
       height: $dialog-bottom-height;
       padding: 0 $dialog-header-padding-right 0 $dialog-header-padding-left;
+      margin-top: 30px;
       text-align: right;
       background-color: $dialog-bottom-bg-color;
 
