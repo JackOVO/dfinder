@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <style>
+    body {
+      text-align: center;
+      line-height: 1;
+      font-family: \5fae\8f6f\96c5\9ed1, tahoma;
+    }
+    #en-logo {
+      margin-top: 48px;
+    }
+    .medal-blue {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background-color: #55a9e9;
+    }
+    .gimmick {
+      font-size: 20px;
+      color: #fff;
+      opacity: .7;
+      letter-spacing: 3px;
+      margin-top: 14px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+    }
+    .options {
+      margin-top: 25px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+    }
+    .options span {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      opacity: .7;
+      cursor: pointer;
+    }
+    .options span:first-child {
+      margin-right: 60px;
+    }
+    .options .selected {
+      opacity: 1;
+    }
+    .dialog-signup {
+      box-sizing: border-box;
+      width: 290px;
+      height: 300px;
+      margin: 30px auto 0 auto;
+      padding: 30px 0 0 30px;
+
+      border: 1px solid #fd6e6e;
+      background-color: #edf1f5;
+      text-align: left;
+      border-radius: 4px;
+
+      box-shadow: 0 0 0 3px rgba(237, 120, 126, .6);
+      position: relative;
+    }
+    .dialog-signup:before {
+      content: '';
+      display: inline-block;
+      border: 15px solid rgba(237, 120, 126, .6);
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      position: absolute;
+      top: -34px;
+      left: 78px;
+    }
+    .dialog-signup:after {
+      content: '';
+      display: inline-block;
+      border: 13px solid #FD6E6E;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      position: absolute;
+      top: -27px;
+      left: 80px;
+    }
+    .dialog-border{
+      display: inline-block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 15px solid #edf1f5;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      top: -43px;
+      left: 78px;
+      z-index: 2;
+    }
+    .dialog-signup input {
+      width: 220px;
+      color: #000;
+      font-size: 16px;
+      line-height: 40px;
+      margin-bottom: 12px;
+      border: 1px solid #d3d7d9;
+      padding-left: 10px;
+      outline: 0;
+    }
+    .dialog-signup input.last {
+      width: 120px;
+      margin-bottom: 0;
+      margin-right: 8px;
+    }
+    .dialog-bottom {
+      margin-top: 45px;
+    }
+    .dialog-signup input:hover {
+      border: 1px solid #3b9eff;
+    }
+    .sign-up {
+      color: rgba(255,255,255,1);
+      font-size: 18px;
+      letter-spacing: 4px;
+      border-radius: 4px;
+
+      background-color: #4faeff;
+      border: 1px solid #58a3fc;
+      box-shadow: 0 1px 1px #7a7a7a;
+
+      width: 160px;
+      height: 40px;
+      font-weight: bold;
+      font-family: \5fae\8f6f\96c5\9ed1, tahoma;
+      outline: 0;
+      cursor: pointer;
+    }
+    .sign-up:hover {
+      background-color: #44ABFF;
+    }
+    .sign-up.disable {
+      color: rgba(255,255,255,.5);
+      cursor: default;
+    }
+    .sign-up.disable:hover {
+      background-color: #4faeff;
+    }
+    .verification {
+      display: inline-block;
+      width: 84px;
+      line-height: 40px;
+      border: 1px solid #d3d7d9;
+      background-color: #d3d7d9;
+    }
+    .sign-up-ip {
+      font-size: 14px;
+      color: #ff9595;
+      margin-left: 22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="medal-blue"></div>
+  <div id="en-logo">
+    <a href="platform.html"><img src="images/logo-登陆.png" alt="LOGO"></a>
+  </div>
+  <h1 class="gimmick">海量数据资源,专业分析资源</h1>
+  <div class="options">
+    <span class="selected">登陆</span><span>注册</span>
+  </div>
+  <div class="dialog-signup">
+    <p class="dialog-border"></p>
+    <input type="text" value="larryguo">
+    <input type="text" value="" placeholder="密码">
+    <input class="last" type="text" value="" placeholder="验证码">
+    <span class="verification">&nbsp;</span>
+    <div class="dialog-bottom">
+      <button class="sign-up disable">登陆</button>
+      <a class="sign-up-ip" href="javascript:;">IP登陆</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -88,6 +88,11 @@ $indicate-item-padding-right: $accordion-hander-padding-right + rem-calc(12);
           background: $accordion-bg-color;
         }
 
+        // 多选
+        .checkbox {
+          margin-bottom: 10px;
+        }
+
         // 指标相关
         .indic-related {
           margin-top: 20px;

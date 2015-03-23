@@ -155,6 +155,7 @@ $dialog-bottom-bg-color: #f0f0f0;
   // 对话框
   .dialog {
     width: 462px;
+    // min-width: 462px;
     z-index: 501;
     @include dialog-base($padding: 0);
     @include dialog-border(
@@ -183,7 +184,6 @@ $dialog-bottom-bg-color: #f0f0f0;
         width: 100%;
         font-size: 12px;
 
-
         .highlight {
           th, td {
             padding-bottom: 14px;
@@ -191,10 +191,22 @@ $dialog-bottom-bg-color: #f0f0f0;
             border-bottom: 1px solid #d3d5d9;
             background-color: $white;
           }
+          th { vertical-align: top; }
+
+          .checkbox {
+            margin-bottom: 10px;
+          }
         }
         .highlight-loft {
           th, td { padding-bottom: 14px; }
-        } 
+        }
+        .highlight-content {
+          display: block;
+          overflow: auto;
+          white-space: nowrap;
+          overflow-y: auto;
+          overflow-x: auto;
+        }
 
         th {
           width: 1px;
@@ -202,18 +214,16 @@ $dialog-bottom-bg-color: #f0f0f0;
           text-align: left;
           white-space: nowrap;
         }
-        td {
-          padding-right: $dialog-header-padding-right;
-        }
-
+        td { padding-right: $dialog-header-padding-right; }
         tr, td, th {
           padding-top: 14px;
-          // outline: 1px solid red;
-          // border: 1px solid red;
+          outline: 1px solid red;
         }
       }
       // 嚯哈嚯哈嚯哈嚯哈呼哦哈嚯哈
     }
+
+
 
     .dialog-bottom {
       height: $dialog-bottom-height;
@@ -225,7 +235,6 @@ $dialog-bottom-bg-color: #f0f0f0;
       // 偷技巧
       button { margin: 10px 0 0 10px; }
     }
-
 
   }
 }
