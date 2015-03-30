@@ -1,43 +1,56 @@
-// Foundation by ZURB
-// foundation.zurb.com
-// Licensed under MIT Open Source
-// 借鉴???
+// 功能函数
 
-// rem转换计算基础
+// 默认body的font-size和rem单位的基础值
 $rem-base: 16px !default;
 
-// 相当于命名空间的效果,防止重复引入
+// 模块数组, 防止过多依赖的模块多次加载
 $modules: () !default;
-@mixin exports ($name) {
+
+// 根据名字添加到全局模块中
+@mixin exprots ($name) {
   // 引入全局模块
   $modules: $modules !global;
-  // 检查模块是否存在
+
+  // 检查组件是否已经存在
   $module_index: index($modules, $name);
   @if (($module_index == null) or ($module_index == false)) {
     $modules: append($modules, $name) !global;
+    // 接受一整块样式
     @content;
   }
 }
 
-// 转换成REM
-@function convert-to-rem ($value, $base-value: $rem-base) {
-  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
-  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
-  @return $value;
-}
-
-// 这条计量单位并返回它
+// 去掉单位?
 @function strip-unit ($num) {
   @return $num / ($num * 0 + 1);
 }
 
-// REM 值转换
-// $values - 值 || 列表
-// $base-value - 基值
+// 转换到rem
+@function convert-to-rem ($value, $base-value: $rem-base) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; }
+  @return $value;
+}
+
+// 返回数据前缀
+@function data ($attr) {
+  @if $namespace {
+    @return '[data-' + $namespace + '-' + $attr + ']';
+  }
+
+  @return '[data-' + $attr + ']';
+}
+
+// rem计算
+// $values - 需要转换的值或者数组
+// $base-value - 转换为rem的基础值 Default:$rem-base or 16px
 @function rem-calc ($values, $base-value: $rem-base) {
   $max: length($values);
 
-  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+  // 如果只有一位
+  @if $max == 1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
 
   $remValues: ();
   @for $i from 1 through $max {
@@ -45,3 +58,4 @@ $modules: () !default;
   }
   @return $remValues;
 }
+
