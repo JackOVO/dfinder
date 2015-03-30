@@ -7,7 +7,7 @@ $rem-base: 16px !default;
 $modules: () !default;
 
 // 根据名字添加到全局模块中
-@mixin exprots ($name) {
+@mixin exports ($name) {
   // 引入全局模块
   $modules: $modules !global;
 
