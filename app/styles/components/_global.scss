@@ -260,11 +260,5 @@ $cursor-text-value: text !default;
     .height-full { height: 100%; }
     // 隐藏但维持布局
     .invisible { visibility: hidden; }
-    .fn-fonthid {
-      display: inline-block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
   }
 }

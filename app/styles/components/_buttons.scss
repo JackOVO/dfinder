@@ -129,8 +129,8 @@ $button-disabled-border-color: #323232;
     }
 
     // 得到亮度
-    // $bg-lightness: lightness($bg);
-    // $bg-hover-lightness: lightness($bg-hover);
+    $bg-lightness: lightness($bg);
+    $bg-hover-lightness: lightness($bg-hover);
 
     color: $color;
     background: $bg;

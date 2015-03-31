@@ -1,0 +1,29 @@
+@import "global";
+
+@include exports ("inline-style") {
+
+  // 线字线:)
+  .line-font-line {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+
+    &::after, &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      height: 1px;
+      width: 30%;
+    }
+    &::before { left: auto; right: 0; }
+  }
+
+  .fn-fonthid {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

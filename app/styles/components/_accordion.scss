@@ -29,14 +29,18 @@ $accordion-hander-letter-spacing: 2px;
 $accordion-header-active-before-width: rem-calc(10);
 
 // 内容项
+$accordion-content-block-spacing: rem-calc(20);
+$accordion-content-line-color: #838a93;
+
+// 指标项
 $accordion-content-indicator-font-size: 12px;
 $accordion-content-indicator-height: rem-calc(36);
 $accordion-content-indicator-border-color: #87898b;
 
+// 指标搜索
 $accordion-indicator-search-bg-color: #3b424a;
 $accordion-indicator-border-color: hsl(0, 0%, 27%);
 $accordion-indicator-font-color: rgba($white, .8);;
-
 
 @include exports("accordion") {
   .accordion {
@@ -81,32 +85,45 @@ $accordion-indicator-font-color: rgba($white, .8);;
         border-top: 1px solid $accordion-content-border-color;
         overflow: hidden;
 
-        &.active { height: 200px; }
+        &.active { height: 250px; }
+      }
 
-        // 指标项
-        .indicator {
-          height: $accordion-content-indicator-height;
+      // 指标项
+      .indicator {
+        height: $accordion-content-indicator-height;
+        width: 100%;
+        padding: 0 $accordion-padding-left 0 $accordion-padding-left;
+        font-size: $accordion-content-indicator-font-size;
+        color: $white;
+        border-bottom: 1px solid $accordion-content-indicator-border-color;
+
+        .fn-fonthid {
           width: 100%;
-          padding: 0 $accordion-padding-left 0 $accordion-padding-left;
+          line-height: $accordion-content-indicator-height;
+          vertical-align: middle;
+        }
+        .remove { margin: 0 -16px -5px 0; }
+      }
+
+      // 搜索指标的按钮
+      .search-indicator {
+        color: $accordion-indicator-font-color;
+        background: $accordion-indicator-search-bg-color;
+        border-color: $accordion-indicator-border-color;
+      }
+
+      // 推荐指标容器
+      .recommend-indicator-container {
+        padding: 0 $accordion-padding-left;
+        margin-top: $accordion-content-block-spacing;
+        line-height: 1;
+
+        .line-font-line {
+          margin-bottom: rem-calc(15);
           font-size: $accordion-content-indicator-font-size;
-          color: $white;
-          border-bottom: 1px solid $accordion-content-indicator-border-color;
-
-          .fn-fonthid {
-            width: 100%;
-            line-height: $accordion-content-indicator-height;
-            vertical-align: middle;
-          }
-          .remove { margin: 0 -16px -5px 0; }
+          color: $accordion-font-color;
+          &::after, &::before { background-color: $accordion-content-line-color; }
         }
-
-        // 搜索指标的按钮
-        .search-indicator {
-          color: $accordion-indicator-font-color;
-          background: $accordion-indicator-search-bg-color;
-          border-color: $accordion-indicator-border-color;
-        }
-
       }
     }
   }

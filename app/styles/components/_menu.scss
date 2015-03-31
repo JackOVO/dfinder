@@ -1,0 +1,104 @@
+@import "global";
+// 级联菜单
+
+$menu-item-direction: left; // li
+
+$menu-block-padding: rem-calc(5) 0 rem-calc(5) 0;
+$menu-group-line-margin: rem-calc(4) 0;
+$menu-item-gap: rem-calc(12); // 菜单项空隙
+$menu-item-filling: rem-calc(20); // 两侧填充尺寸
+$menu-item-min-width: rem-calc(140); // 最小尺寸
+
+$menu-group-line-color: #ebebeb;
+$menu-block-bg-color: $white;
+$menu-block-border-color: #d3d7d9;
+$menu-item-hover-bg-color: #f0f0f0;
+$menu-block-box-shadow-color: #e6e7e7;
+
+@include exports ("menu") {
+
+  .menu {
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: block;
+      float: $menu-item-direction;
+
+      &.hover { // 激活
+        position: relative; // 下层容器相对定位
+        > ul { display: block; } // 展开下层
+      }
+
+      &.group-line { // 组分割线
+        border-bottom: 1px solid $menu-group-line-color;
+        margin: $menu-group-line-margin;
+      }
+
+      > ul { // 二级菜单容器
+        padding: $menu-block-padding;
+        background-color: $menu-block-bg-color;
+        border: 1px solid $menu-block-border-color;
+
+        a { // 菜单项尺寸定义
+          min-width: $menu-item-min-width;
+          padding: $menu-item-gap/2 $menu-item-filling;
+          &:hover { background-color: $menu-item-hover-bg-color; }
+        }
+      }
+    }
+
+    ul {
+      position: absolute; // 根据li绝对定位
+      z-index: 99;
+      display: none;
+      margin: 0;
+      padding: 0;
+
+      box-shadow: 2px 2px 9px $menu-block-box-shadow-color;
+
+      ul {
+        top: 0;
+        left: 100%;
+        margin-left: -5px;
+
+        box-shadow: 2px 2px 9px $menu-block-box-shadow-color;
+      }
+
+      li { float: none; }
+    }
+
+    // 默认菜单项的大小控制
+    a {
+      display: block;
+      padding: 5px 8px; // 权重低默认
+      font-size: 12px;
+      color: $black;
+      cursor: default;
+      white-space: nowrap;
+      vertical-align: middle;
+      text-decoration: none;
+    }
+
+    > li.hover > a { // 向下覆盖li形成一个整体的框
+      position: relative;
+      border: 1px solid $menu-block-border-color;
+      border-bottom-color: $menu-block-border-color;
+      background-color: $menu-block-bg-color;
+      box-shadow: 2px 2px 9px $menu-block-box-shadow-color;
+
+      &::after { // 遮盖阴影
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 9px;
+        position: absolute;
+        z-index: 100;
+        bottom: -2px;
+        left: 0;
+        background-color: $menu-block-bg-color;
+      }
+    }
+  }
+}
+

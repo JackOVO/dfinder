@@ -1,0 +1,52 @@
+@import "global";
+// 输入元素定义
+
+@include exports ("input") {
+
+// 尺寸
+$checkbox-box-width: rem-calc(11);
+$checkbox-box-height: rem-calc(11);
+$checkbox-text-spacing: rem-calc(8);
+$checkbox-maring-bottom: rem-calc(10);
+
+//颜色
+$checkbox-font-color: rgba(255, 255, 255, .5);
+$checkbox-selected-font-color: $white;
+$checkbox-box-bg-color: #7c828b;
+$checkbox-box-border-color: #3f454c;
+$checkbox-box-selected-color: #64aff9;
+$checkbox-box-selected-bg-color: $white;
+
+$checkbox-font-size: rem-calc(12);
+
+  .checkbox {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: $checkbox-maring-bottom;
+    font-size: $checkbox-font-size;
+    cursor: pointer;
+    color: $checkbox-font-color;
+
+    &.selected {
+      color: $checkbox-selected-font-color;
+      &:before {
+        background-color: $checkbox-box-selected-color;
+        box-shadow: inset 1px 1px 0 1px $checkbox-box-selected-bg-color,
+                    inset -1px -1px 0 1px $checkbox-box-selected-bg-color;
+      }
+    }
+
+    &:before {
+      content: "";
+      display: inline-block;
+      width: $checkbox-box-width;
+      height: $checkbox-box-height;
+      margin: 0 $checkbox-text-spacing -1px 0;
+      border: 1px solid $black;
+      cursor: default;
+
+      border-color: $checkbox-box-border-color;
+      background-color: $checkbox-box-bg-color
+    }
+  }
+}
