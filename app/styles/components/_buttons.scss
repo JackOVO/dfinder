@@ -198,7 +198,7 @@ display: inline-block;
     };
     &.expand { @include button-size(
       $side-width: $button-min-letter-spacing,
-      $line-height: 34px,
+      $line-height: 30px,
       $full-width: true);
     }
 

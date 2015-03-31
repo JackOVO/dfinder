@@ -1,0 +1,25 @@
+@import "global";
+// 图标条
+
+// 图标定位
+// $height - 高度
+// $left - 左距离
+// $right - 右距离
+@mixin icon-posi ($height: null, $left: null, $right: null) {
+  @if $height {
+    position: absolute;
+    top: 50%;
+    height: $height;
+    margin-top: -($height / 2);
+  }
+
+  @if $left { left: $left; }
+  @if $right { right: $right; }
+}
+
+@include exports ("icon-bar") {
+  .icon-bar {
+    display: inline-block;
+    line-height: 0;
+  }
+}

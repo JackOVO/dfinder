@@ -4,7 +4,10 @@
 @import "normalize.scss";
 @import "components/_global.scss";
 @import "components/_color.scss";
+@import "components/_icons.scss";
+@import "components/_icon-bar.scss";
 @import "components/_buttons.scss";
+@import "components/_accordion.scss";
 
 $plat-side-width: 230px;
 $plat-side-top-height: 100px;
@@ -68,16 +71,12 @@ div {
   outline: 1px solid orange;
 }
 
-
-
 // @import "helpars/_placeholders.scss";
 
 // @import "components/_link.scss"; // 链接
 
 // @import "components/_icon.scss"; // 图标
-// @import "components/_buttons.scss"; // 按钮
 // @import "components/_icon-bar.scss"; // 图标条
-// @import "components/_accordion.scss"; // 手风琴
 // @import "components/_menu.scss"; // 菜单
 // @import "components/_toolbar.scss"; // 工具表
 // @import "components/_dialog.scss"; // 弹出框

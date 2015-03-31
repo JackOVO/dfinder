@@ -1,0 +1,97 @@
+@import "global";
+// 图标定义
+
+// 基础宽高
+$icon-base-height: rem-calc(12);
+$icon-base-width: rem-calc(12);
+$icon-base-img-key: "icon-collecion";
+
+// 图片路径的映射
+$icon-image-map: (
+  "row": "../icons/row.png",
+  "arrow": "../icons/arrow.png",
+  "triangle": "../icons/triangle.png",
+  "arrow-min": "../icons/arrow-min.png",
+  "close-min": "../icons/close-min.png",
+  "search-min": "../icons/search-min.png",
+  "selected": "../icons/selected.png",
+  "row-hover": "../icons/row-hover.png",
+  "icon-collecion": "../icons/icon-collecion.png",
+);
+
+// 控制图标的尺寸
+// $width - 控制宽度
+// $height - 控制高度
+@mixin icon-size (
+  $height:$icon-base-height,
+  $width:$icon-base-width) {
+
+  height: $height;
+  width: $width;
+}
+
+// 图标容器
+// $width - 控制宽度可以显示的宽度
+// $height - 控制容器可以显示的高度
+@mixin icon-container (
+  $width: $icon-container-width,
+  $height: $icon-container-height) {
+
+  display: block;
+  position: relative;
+  overflow: hidden;
+  @include icon-size($height, $width);
+}
+
+// 设置图标图片
+// $imgKey - icon路径的key
+// $img-posi - 偏移量. Default: null
+@mixin icon-map ($img-key: $icon-base-img-key, $img-posi: null) {
+
+  $img-url: map-get($icon-image-map, $img-key);
+  background-image: url($img-url);
+  @if $img-posi != null {
+    background-position: nth($img-posi, 1) nth($img-posi, 2);
+  }
+}
+
+// 创建基础的图标样式
+// $height - 高度
+// $width - 宽度
+// $img-key - 图片映射路径key
+// $img-posi - 图片偏移量
+@mixin icon-image (
+  $img-key:null, $img-posi:null,
+  $height:$icon-base-height, $width:$icon-base-width) {
+
+  @include icon-size($height, $width);
+  @include icon-map($img-key, $img-posi);
+}
+
+// 创建切换的icon
+// $height - 高度
+// $width - 宽度
+// $key - 图片映射路径key
+// $img-hover-key - hover下图片映射路径key
+@mixin icon-toggle (
+  $img-key: null, $img-hover-key: null,
+  $height:$icon-base-height, $width:$icon-base-width) {
+
+  @include icon-size($height, $width);
+  @if $img-key != null { @include icon-map($img-key); }
+  @if $img-hover-key != null {
+    &:hover { @include icon-map($img-hover-key); }
+  }
+}
+
+@include exports ("icons") {
+  .icon, .icon-btn {
+    display: inline-block;
+
+    &.row, &.col { @include icon-toggle("row", "row-hover"); }
+    &.col { @include rotate2d(90deg); }
+    &.remove { @include icon-image("icon-collecion", (-123px, -87px), 16px, 16px); }
+    &.remove:hover { @include icon-image("icon-collecion", (-144px, -87px), 16px, 16px); }
+  }
+  .icon-btn { cursor: pointer; }
+}

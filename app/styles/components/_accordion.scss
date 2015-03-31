@@ -1,0 +1,115 @@
+@import "global";
+@import "icon-bar";
+// 手风琴
+
+// 控制项填充
+$accordion-height: 100%;
+$accordion-padding-left: rem-calc(20);
+
+// 默认颜色定义
+$accordion-bg-color: #4a525d;
+$accordion-font-color: rgba($white, .5);
+$accordion-header-bg-color: #777d86;
+$accordion-header-border-color: #95999e;
+$accordion-content-border-color: #24282e;
+
+// 激活状态颜色定义
+$accordion-active-font-color: $white;
+$accordion-header-active-color: #87c4ff;
+
+// 控制字体
+$accordion-font-size: rem-calc(14) !default;
+$accordion-font-family: $body-font-family !default;
+
+// 手风琴头
+$accordion-hander-height: rem-calc(36);
+$accordion-hander-padding-right: $accordion-padding-left;
+$accordion-hander-font-size: rem-calc(16);
+$accordion-hander-letter-spacing: 2px;
+$accordion-header-active-before-width: rem-calc(10);
+
+// 内容项
+$accordion-content-indicator-font-size: 12px;
+$accordion-content-indicator-height: rem-calc(36);
+$accordion-content-indicator-border-color: #87898b;
+
+$accordion-indicator-search-bg-color: #3b424a;
+$accordion-indicator-border-color: hsl(0, 0%, 27%);
+$accordion-indicator-font-color: rgba($white, .8);;
+
+
+@include exports("accordion") {
+  .accordion {
+    height: $accordion-height;
+
+    .accordion-navigation {
+      > a { text-decoration: none; }
+
+      .hander {
+        position: relative;
+        display: block;
+        height: $accordion-hander-height;
+        padding-left: $accordion-padding-left;
+        border-top: 1px solid $accordion-header-border-color;
+        border-bottom: 1px solid $accordion-header-bg-color;
+        line-height: $accordion-hander-height;
+        letter-spacing: $accordion-hander-letter-spacing;
+        color: $accordion-font-color;
+        background-color: $accordion-header-bg-color;
+
+        &.active {
+          color: $accordion-active-font-color;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -1px; left: 0;
+            height: $accordion-hander-height;
+            width: $accordion-header-active-before-width;
+            background-color: $accordion-header-active-color;
+          }
+        }
+
+        & > .icon-bar {
+          @include icon-posi($height: 12px, $right: $accordion-hander-padding-right);
+        }
+      }
+
+      .content {
+        height: 1px;
+        border-top: 1px solid $accordion-content-border-color;
+        overflow: hidden;
+
+        &.active { height: 200px; }
+
+        // 指标项
+        .indicator {
+          height: $accordion-content-indicator-height;
+          width: 100%;
+          padding: 0 $accordion-padding-left 0 $accordion-padding-left;
+          font-size: $accordion-content-indicator-font-size;
+          color: $white;
+          border-bottom: 1px solid $accordion-content-indicator-border-color;
+
+          .fn-fonthid {
+            width: 100%;
+            line-height: $accordion-content-indicator-height;
+            vertical-align: middle;
+          }
+          .remove { margin: 0 -16px -5px 0; }
+        }
+
+        // 搜索指标的按钮
+        .search-indicator {
+          color: $accordion-indicator-font-color;
+          background: $accordion-indicator-search-bg-color;
+          border-color: $accordion-indicator-border-color;
+        }
+
+      }
+    }
+  }
+}
+
+
