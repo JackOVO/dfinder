@@ -53,6 +53,23 @@ $plat-body-footer-height: 32px;
     @at-root #plat-body-hander {
       height: $plat-body-hander-height;
       margin-top: -$plat-body-hander-height;
+
+      > .hamburger {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+
+        @include hamburger(
+          $width:18px, $thickness:1px,
+          $top:12px, $left:10px,
+          $gap:6px, $color:$white,
+          $offcanvas:true);
+      }
+      > .menu {
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
 
     @at-root #plat-body-info {

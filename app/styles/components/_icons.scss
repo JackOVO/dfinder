@@ -88,7 +88,10 @@ $icon-image-map: (
   .icon, .icon-btn {
     display: inline-block;
 
-    &.row, &.col { @include icon-toggle("row", "row-hover"); }
+    &.row, &.col {
+      @include single-transition(background-image);
+      @include icon-toggle("row", "row-hover");
+    }
     &.col { @include rotate2d(90deg); }
     &.remove { @include icon-image("icon-collecion", (-123px, -87px), 16px, 16px); }
     &.remove:hover { @include icon-image("icon-collecion", (-144px, -87px), 16px, 16px); }

@@ -92,7 +92,8 @@ $accordion-indicator-font-color: rgba($white, .8);;
       .indicator {
         height: $accordion-content-indicator-height;
         width: 100%;
-        padding: 0 $accordion-padding-left 0 $accordion-padding-left;
+        // 为了删除icon两像素的对其
+        padding: 0 $accordion-padding-left 0 ($accordion-padding-left + rem-calc(2));
         font-size: $accordion-content-indicator-font-size;
         color: $white;
         border-bottom: 1px solid $accordion-content-indicator-border-color;
@@ -102,7 +103,7 @@ $accordion-indicator-font-color: rgba($white, .8);;
           line-height: $accordion-content-indicator-height;
           vertical-align: middle;
         }
-        .remove { margin: 0 -16px -5px 0; }
+        .remove { margin: 0 -16px -5px -2px; }
       }
 
       // 搜索指标的按钮

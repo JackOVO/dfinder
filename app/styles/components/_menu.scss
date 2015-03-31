@@ -1,29 +1,38 @@
 @import "global";
 // 级联菜单
 
-$menu-item-direction: left; // li
+$menu-container-display: block; // 菜单容器
+$menu-container-direction: left;// 一级li
 
-$menu-block-padding: rem-calc(5) 0 rem-calc(5) 0;
-$menu-group-line-margin: rem-calc(4) 0;
+$menu-content-padding: rem-calc(5) 0;
+
+$menu-item-display: block;
 $menu-item-gap: rem-calc(12); // 菜单项空隙
 $menu-item-filling: rem-calc(20); // 两侧填充尺寸
 $menu-item-min-width: rem-calc(140); // 最小尺寸
 
-$menu-group-line-color: #ebebeb;
-$menu-block-bg-color: $white;
-$menu-block-border-color: #d3d7d9;
+$menu-item-font-padding: rem-calc(5) rem-calc(8); // 权重低默认
+$menu-item-font-size: 12px;
+$menu-item-font-color: $black;
+
+$menu-group-line-margin: rem-calc(4) 0;
+
+$menu-content-border-color: #d3d7d9;
+$menu-content-bg-color: $white;
 $menu-item-hover-bg-color: #f0f0f0;
-$menu-block-box-shadow-color: #e6e7e7;
+$menu-group-line-color: #ebebeb;
+$menu-content-box-shadow-color: #e6e7e7;
+
 
 @include exports ("menu") {
-
   .menu {
     margin: 0;
     padding: 0;
+outline: 1px solid red;
 
     li {
-      display: block;
-      float: $menu-item-direction;
+      display: $menu-container-display;
+      float: $menu-container-direction;
 
       &.hover { // 激活
         position: relative; // 下层容器相对定位
@@ -36,9 +45,9 @@ $menu-block-box-shadow-color: #e6e7e7;
       }
 
       > ul { // 二级菜单容器
-        padding: $menu-block-padding;
-        background-color: $menu-block-bg-color;
-        border: 1px solid $menu-block-border-color;
+        padding: $menu-content-padding;
+        background-color: $menu-content-bg-color;
+        border: 1px solid $menu-content-border-color;
 
         a { // 菜单项尺寸定义
           min-width: $menu-item-min-width;
@@ -50,30 +59,27 @@ $menu-block-box-shadow-color: #e6e7e7;
 
     ul {
       position: absolute; // 根据li绝对定位
-      z-index: 99;
       display: none;
-      margin: 0;
       padding: 0;
-
-      box-shadow: 2px 2px 9px $menu-block-box-shadow-color;
+      margin: 0;
+      box-shadow: 2px 2px 9px $menu-content-box-shadow-color;
 
       ul {
         top: 0;
         left: 100%;
         margin-left: -5px;
 
-        box-shadow: 2px 2px 9px $menu-block-box-shadow-color;
+        box-shadow: 2px 2px 9px $menu-content-box-shadow-color;
       }
 
       li { float: none; }
     }
 
-    // 默认菜单项的大小控制
-    a {
-      display: block;
-      padding: 5px 8px; // 权重低默认
-      font-size: 12px;
-      color: $black;
+    a { // 菜单项的大小控制
+      display: $menu-item-display;
+      padding: $menu-item-font-padding; // 权重低默认
+      font-size: $menu-item-font-size;
+      color: $menu-item-font-color;
       cursor: default;
       white-space: nowrap;
       vertical-align: middle;
@@ -82,10 +88,10 @@ $menu-block-box-shadow-color: #e6e7e7;
 
     > li.hover > a { // 向下覆盖li形成一个整体的框
       position: relative;
-      border: 1px solid $menu-block-border-color;
-      border-bottom-color: $menu-block-border-color;
-      background-color: $menu-block-bg-color;
-      box-shadow: 2px 2px 9px $menu-block-box-shadow-color;
+      border: 1px solid $menu-content-border-color;
+      border-bottom-color: $menu-content-border-color;
+      background-color: $menu-content-bg-color;
+      box-shadow: 2px 2px 9px $menu-content-box-shadow-color;
 
       &::after { // 遮盖阴影
         content: "";
@@ -94,11 +100,10 @@ $menu-block-box-shadow-color: #e6e7e7;
         height: 9px;
         position: absolute;
         z-index: 100;
-        bottom: -2px;
         left: 0;
-        background-color: $menu-block-bg-color;
+        bottom: -2px;
+        background-color: $menu-content-bg-color;
       }
     }
   }
 }
-

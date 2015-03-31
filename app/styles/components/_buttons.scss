@@ -166,23 +166,6 @@ $button-disabled-border-color: #323232;
 
 @include exports ("bottons") {
 
-.hamburger {
-height: 40px;
-width: 40px;
-position: relative;
-cursor: pointer;
-
-@include hamburger(
-$width:18px, $thickness:1px,
-$top:13px, $left:11px,
-$gap:6px, $color:$white,
-$offcanvas:true);
-
-&::after {
-display: inline-block;
-}
-}
-
   button, .button {
     @include button-base;
 
