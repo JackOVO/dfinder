@@ -1,0 +1,58 @@
+@import "global";
+// 对话框定义
+
+@include exports ("dialog") {
+
+// 对话盒子模型
+$dialog-min-width: rem-calc(462);
+$dialog-padding-left: rem-calc(20);
+$dialog-header-height: rem-calc(42);
+$dialog-bottom-height: rem-calc(50);
+
+$dialog-border-radius: 4px;
+
+// 颜色定义
+$dialog-border-color: #646464;
+$dialog-bg-color: #fafafa;
+$dialog-header-border-color: #a3a4a5;
+$dialog-bottom-bg-color: #f0f0f0;
+
+// 字体定义
+$dialog-header-font-size: 16px;
+
+$dialog-box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, .6);
+$dialog-z-index: 501;
+
+  .dialog {
+    min-width: $dialog-min-width;
+    border: 1px solid $dialog-border-color;
+    border-radius: $dialog-border-radius;
+    background-color: $dialog-bg-color;
+    box-shadow: $dialog-box-shadow;
+
+    .dialog-header {
+      height: $dialog-header-height;
+      padding: 0 $dialog-padding-left 0 $dialog-padding-left;
+      border-bottom: 1px solid $dialog-header-border-color;
+      font-size: $dialog-header-font-size;
+      line-height: $dialog-header-height;
+      font-weight: bold;
+
+      .icon-bar {
+        display: inline-block;
+        height: $dialog-header-height;
+        vertical-align: top;
+        float: right;
+        line-height: $dialog-header-height;
+      }
+    }
+
+    .dialog-bottom {
+      height: $dialog-bottom-height;
+      padding: 0 $dialog-padding-left 0 $dialog-padding-left;
+      margin-top: 30px;
+      text-align: right;
+      background-color: $dialog-bottom-bg-color;
+    }
+  }
+}
