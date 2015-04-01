@@ -1,0 +1,53 @@
+@import "global";
+@import "icons";
+// 选项卡定义
+
+// 选项卡项盒子
+$tabs-item-width: rem-calc(140);
+$tabs-item-selected-width: rem-calc(160);
+$tabs-item-height: rem-calc(31);
+$tabs-item-padding: 0 14px 0 9px;
+
+$tabs-item-font-color: rgba(0, 0, 0, .6);
+$tabs-item-selected-color: #87c4ff;
+$tabs-item-border-color: #d3d7dd;
+$tabs-item-bg-color: #e3e5e7;
+
+@include exports("tabs") {
+
+  .tabs-item {
+    position: relative;
+    display: inline-block;
+    height: $tabs-item-height;
+    width: $tabs-item-width;
+    padding: $tabs-item-padding;
+    margin-right: -1px;
+
+    font-size: 12px;
+    line-height: ($tabs-item-height - rem-calc(2));
+    border-left: 1px solid $tabs-item-border-color;
+    border-right: 1px solid $tabs-item-border-color;
+    background-color: $tabs-item-bg-color;
+    color: $tabs-item-font-color;
+    vertical-align: middle;
+    cursor: pointer;
+
+    // @include icon-abs-before("close-min", (0, 0));
+    // &::before { left: auto; right: 10px; }
+    &.selected {
+      width: $tabs-item-selected-width;
+      color: $black;
+      background-color: $white;
+      border-bottom: 4px solid $tabs-item-selected-color;
+    }
+
+    // & > .icon-close-m { 不行啊
+    //   display: inline-block;
+    //   height: 8px;
+    //   width: 8px;
+    //   background-color: red;
+    //   @include icon-abs-before("close-min", (0, 0));
+    //   &::before { left: auto; right: 10px; }
+    // }
+  }
+}

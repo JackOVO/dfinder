@@ -7,7 +7,11 @@
 @import "components/_icons.scss";
 @import "components/_input.scss";
 @import "components/_menu.scss";
+@import "components/_tabs.scss";
+@import "components/_panel.scss";
+@import "components/_toolbar.scss";
 @import "components/_buttons.scss";
+@import "components/_flexible.scss";
 @import "components/_icon-bar.scss";
 @import "components/_accordion.scss";
 @import "components/_inline-style.scss";
@@ -18,6 +22,16 @@ $plat-side-top-height: 100px;
 $plat-body-info-width: 290px;
 $plat-body-hander-height: 78px;
 $plat-body-footer-height: 32px;
+
+$plat-body-footer-padding: 0 0 0 20px;
+
+$plat-body-hander-hamburger-bg-color: #ff8585;
+
+$plat-body-info-bg-color: #fefefe;
+$plat-body-info-border-color: #a3a4a5;
+$plat-body-info-sudo-bg-color: #87c4ff;
+$plat-body-footer-border-color: #d7dadc;
+$plat-body-footer-bg-color: #f0f0f0;
 
 #plat-main {
   height: 100%;
@@ -59,6 +73,8 @@ $plat-body-footer-height: 32px;
         width: 40px;
         height: 40px;
         vertical-align: middle;
+        background-color: $plat-body-hander-hamburger-bg-color;
+        border-color: $plat-body-hander-hamburger-bg-color;
 
         @include hamburger(
           $width:18px, $thickness:1px,
@@ -68,13 +84,30 @@ $plat-body-footer-height: 32px;
       }
       > .menu {
         display: inline-block;
+        margin-left: 10px;
         vertical-align: middle;
+      }
+      > .toolbar {
+        padding-left: 60px;
       }
     }
 
     @at-root #plat-body-info {
+      position: relative;
       height: 100%;
       width: $plat-body-info-width;
+      padding: 5px 0 0 9px;
+      border-left: 1px solid $plat-body-info-border-color;
+      background-color: $plat-body-info-bg-color;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      @at-root #plat-info-sudo {
+        position: absolute;
+        top: 5px; right: 0;
+        font-size: 12px;
+        @include button-style($radius: 4px, $bg: $plat-body-info-sudo-bg-color);
+      }
     }
 
     @at-root #plat-body-container {
@@ -83,29 +116,16 @@ $plat-body-footer-height: 32px;
 
     @at-root #plat-body-footer {
       height: $plat-body-footer-height;
+      padding: $plat-body-footer-padding;
+      border-top: 1px solid $plat-body-footer-border-color;
+      background-color: $plat-body-footer-bg-color;
     }
   }
 }
 
 div {
-  outline: 1px solid orange;
+  // outline: 1px solid orange;
 }
-
-// @import "helpars/_placeholders.scss";
-
-// @import "components/_link.scss"; // 链接
-
-// @import "components/_icon.scss"; // 图标
-// @import "components/_icon-bar.scss"; // 图标条
-// @import "components/_menu.scss"; // 菜单
-// @import "components/_toolbar.scss"; // 工具表
-// @import "components/_dialog.scss"; // 弹出框
-// @import "components/_tabs.scss"; // 选项卡
-// @import "components/_flexible.scss"; // 伸展...
-// @import "components/_input.scss"; // 伸展...
-
-
-
 
 // #plat-main {
 //   height: 100%;

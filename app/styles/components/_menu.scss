@@ -1,8 +1,10 @@
 @import "global";
+@import "icons";
 // 级联菜单
 
 $menu-container-display: block; // 菜单容器
 $menu-container-direction: left;// 一级li
+$menu-z-index: 99;
 
 $menu-content-padding: rem-calc(5) 0;
 
@@ -17,18 +19,18 @@ $menu-item-font-color: $black;
 
 $menu-group-line-margin: rem-calc(4) 0;
 
+// 颜色定义
 $menu-content-border-color: #d3d7d9;
 $menu-content-bg-color: $white;
 $menu-item-hover-bg-color: #f0f0f0;
-$menu-group-line-color: #ebebeb;
 $menu-content-box-shadow-color: #e6e7e7;
+$menu-group-line-color: #ebebeb;
 
 
 @include exports ("menu") {
   .menu {
     margin: 0;
     padding: 0;
-outline: 1px solid red;
 
     li {
       display: $menu-container-display;
@@ -36,12 +38,25 @@ outline: 1px solid red;
 
       &.hover { // 激活
         position: relative; // 下层容器相对定位
+        z-index: $menu-z-index;
         > ul { display: block; } // 展开下层
       }
 
       &.group-line { // 组分割线
         border-bottom: 1px solid $menu-group-line-color;
         margin: $menu-group-line-margin;
+      }
+
+      &.child:before { // 子项标示
+        content: "";
+        float: right;
+        margin: 9px 3px 0 0;
+
+        background-repeat: no-repeat;
+        @include icon-image(
+          $width: 10px, $height: 10px,
+          $img-key: "arrow", $img-posi: (1px, 0));
+        @include rotate2d(-90deg);
       }
 
       > ul { // 二级菜单容器

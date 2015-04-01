@@ -84,9 +84,33 @@ $icon-image-map: (
   }
 }
 
+// 伪元素决定定义通过容器显示图标
+// $img-key - 图标映射键
+// $top - 上偏移
+// $left - 左偏移
+@mixin icon-abs-before (
+  $img-key: $icon-base-img-key,
+  $img-abs: null) {
+
+  @if $img-key != null {
+    $img-url: map-get($icon-image-map, $img-key);
+
+    &::before {
+      content: url($img-url);
+      position: absolute;
+      left: nth($img-abs, 1);
+      top: nth($img-abs, 2);
+      display: inline-block;
+    }
+  }
+}
+
 @include exports ("icons") {
+
+  .icon-btn { cursor: pointer; }
   .icon, .icon-btn {
     display: inline-block;
+    background-repeat: no-repeat;
 
     &.row, &.col {
       @include single-transition(background-image);
@@ -95,6 +119,26 @@ $icon-image-map: (
     &.col { @include rotate2d(90deg); }
     &.remove { @include icon-image("icon-collecion", (-123px, -87px), 16px, 16px); }
     &.remove:hover { @include icon-image("icon-collecion", (-144px, -87px), 16px, 16px); }
+    &.arrow-min-down { @include icon-image("arrow-min", (0, 0), 3px, 5px); }
   }
-  .icon-btn { cursor: pointer; }
+
+  // 16 * 16
+  .icon-open { @include icon-abs-before($img-abs      :(-19px, -24px)); }
+  .icon-refresh { @include icon-abs-before($img-abs   :(-53px, -24px)); }
+  .icon-download { @include icon-abs-before($img-abs  :(-88px, -24px)); }
+  .icon-b { @include icon-abs-before($img-abs         :(-157px, -24px)); }
+  .icon-i { @include icon-abs-before($img-abs         :(-226px, -24px)); }
+  .icon-x { @include icon-abs-before($img-abs         :(-122px, -24px)); }
+  .icon-a { @include icon-abs-before($img-abs         :(-190px, -25px)); }
+  .icon-left { @include icon-abs-before($img-abs      :(-328px, -24px)); }
+  .icon-right { @include icon-abs-before($img-abs     :(-259px, -24px)); }
+  .icon-center { @include icon-abs-before($img-abs    :(-294px, -24px)); }
+  .icon-bg { @include icon-abs-before($img-abs        :(-259px, -55px)); }
+  .icon-filter { @include icon-abs-before($img-abs    :(-19px, -55px)); }
+  .icon-e { @include icon-abs-before($img-abs         :(-53px, -55px)); }
+  .icon-percentage { @include icon-abs-before($img-abs:(-88px, -55px)); }
+  .icon-kp { @include icon-abs-before($img-abs        :(-157px, -55px)); }
+  .icon-kq { @include icon-abs-before($img-abs        :(-122px, -55px)); }
+  .icon-y { @include icon-abs-before($img-abs         :(-190px, -55px)); }
+
 }
