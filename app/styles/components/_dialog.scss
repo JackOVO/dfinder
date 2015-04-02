@@ -8,6 +8,10 @@ $dialog-min-width: rem-calc(462);
 $dialog-padding-left: rem-calc(20);
 $dialog-header-height: rem-calc(42);
 $dialog-bottom-height: rem-calc(50);
+$dialog-bottom-button-spacing: rem-calc(6);
+$dialog-content-table-td-padding-left: rem-calc(10);
+$dialog-content-table-td-filling: rem-calc(14);
+$dialog-more-margin-top: rem-calc(14);
 
 $dialog-border-radius: 4px;
 
@@ -16,19 +20,23 @@ $dialog-border-color: #646464;
 $dialog-bg-color: #fafafa;
 $dialog-header-border-color: #a3a4a5;
 $dialog-bottom-bg-color: #f0f0f0;
+$dialog-more-font-line-color: #3b9eff;
 
 // 字体定义
 $dialog-header-font-size: 16px;
+$dialog-font-size: 12px;
 
 $dialog-box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, .6);
 $dialog-z-index: 501;
 
   .dialog {
-    min-width: $dialog-min-width;
+margin-left: -($dialog-min-width / 2);
+    width: $dialog-min-width;
     border: 1px solid $dialog-border-color;
     border-radius: $dialog-border-radius;
     background-color: $dialog-bg-color;
     box-shadow: $dialog-box-shadow;
+    font-size: $dialog-font-size;
 
     .dialog-header {
       height: $dialog-header-height;
@@ -47,12 +55,44 @@ $dialog-z-index: 501;
       }
     }
 
+    .dialog-content {
+      > table { width: 100%; }
+
+      th { // 标题
+        width: 1px;
+        padding-left: $dialog-padding-left;
+        text-align: left;
+        white-space: nowrap;
+      }
+      td {
+        padding-left: $dialog-content-table-td-padding-left;
+        padding-right: $dialog-padding-left;
+      }
+      tr, td, th { padding-top: $dialog-content-table-td-filling; }
+
+      > .dialog-more {
+        outline: 1px solid red;
+        padding: 0 $dialog-padding-left;
+        margin-top: $dialog-more-margin-top;
+
+        .font-line {
+          color: $dialog-more-font-line-color;
+          cursor: pointer;
+          &:after { border-color: #d3d7d9 };
+        }
+      }
+
+    }
+
     .dialog-bottom {
       height: $dialog-bottom-height;
       padding: 0 $dialog-padding-left 0 $dialog-padding-left;
       margin-top: 30px;
       text-align: right;
+      line-height: $dialog-bottom-height;
       background-color: $dialog-bottom-bg-color;
+
+      & > button, & > .button { margin-left: $dialog-bottom-button-spacing; }
     }
   }
 }
