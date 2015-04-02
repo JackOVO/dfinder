@@ -224,7 +224,7 @@
               </tr>
             </tbody></table>
             <div class="dialog-more">
-              <span class="font-line">参数设置</span>
+              <span class="font-line">收起参数设置</span>
               <div class="more-row">
                 常数项：<label class="radio selected" style="margin-left:15px;">默认</label>
                 <label class="radio">无</label>
@@ -257,6 +257,121 @@
               <label class="checkbox break">协方差矩阵</label><br>
               <label class="checkbox break">共线性诊断</label>
             </fieldset>
+            </div>
+          </div>
+          <div class="dialog-bottom">
+            <button class="tiny cancel">取消</button>
+            <button class="small confirm disabled">确定</button>
+          </div>
+        </div>
+
+        <div class="panel dialog">
+          <div class="dialog-header">
+            Arima<span class="icon-bar"><i class="icon remove"></i></span>
+          </div>
+          <div class="dialog-content">
+            <table><tbody>
+              <tr>
+                <th>因变量：</th>
+                <td style="padding-left:0;">
+                  <div class="select-control" style="width:305px;">
+                    <div class="select-input selected">请选择</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">豆角烧茄子</div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="javascript:;" class="fn-btn" style="margin-left:3px;">添加变量</a>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="lateral">
+                  <fieldset class="form-fieldset" style="width:248px;">
+                    <legend>模型阶段：</legend>
+                    <label class="input-label">自回归：</label><br>
+                    <label class="input-label">差分：</label><br>
+                    <label class="input-label">移动平均：</label>
+                  </fieldset>
+                  <fieldset class="form-fieldset right" style="width:163px; height:116px;">
+                    <legend>因变量转换：</legend>
+                    <label class="radio selected">默认</label><br>
+                    <label class="radio">平方根</label><br>
+                    <label class="radio">自然对数转换</label>
+                  </fieldset>
+                </td>
+              </tr>
+              <tr>
+                <th>样本区间：</th>
+                <td>
+                  <div class="select-control" style="width:70px;">
+                    <div class="select-input selected">Jan-78</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">豆角烧茄子</div>
+                      </div>
+                    </div>
+                  </div>
+                  <span style="display:inline-block;height:1px;width:10px;margin:0 8px;background:#a3a4a5;vertical-align: middle;"></span>
+                  <div class="select-control" style="width:70px;">
+                    <div class="select-input selected">Jan-79</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">豆角烧茄子</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>预测终点：</th>
+                <td>
+                  <div class="select-control" style="width:70px;">
+                    <div class="select-input selected">Dec-89</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">豆角烧茄子</div>
+                      </div>
+                    </div>
+                  </div>
+                  <label style="margin-left:30px;">预测区间置信水平：</label>
+                  <div class="select-control" style="width:70px;">
+                    <div class="select-input selected">95%</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">豆角烧茄子</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody></table>
+            <div class="dialog-more">
+              <span class="font-line">收起统计量设置</span>
+              <div class="more-content">
+                <label class="checkbox break">参数统计</label><br>
+                <label class="checkbox break">残差自相关函数</label>
+      <span class="select-description" style="margin-left:40px;">最大滞后数：</span>
+                <div class="select-control min" style="width:52px;">
+                  <div class="select-input disabled">20</div>
+                  <div class="select-dropdown" style="display:none;">
+                    <div class="select-dropdown-content">
+                      <div class="option">豆角烧茄子</div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+              <label class="checkbox break" style="margin-bottom:0;">残差自偏相关函数</label>
+      <span class="select-description" style="margin-left:28px;">最大滞后数：</span>
+              <div class="select-control min" style="width:52px;">
+                <div class="select-input disabled">20</div>
+                <div class="select-dropdown" style="display:none;">
+                  <div class="select-dropdown-content">
+                    <div class="option">豆角烧茄子</div>
+                  </div>
+                </div>
+              </div>
+              </div>
             </div>
           </div>
           <div class="dialog-bottom">
@@ -332,6 +447,8 @@
     <span class="font-block">零值</span>
     <span class="font-block">自定义</span>
   </div>
+
+  
   <!-- 全局弹出块结束 -->
 </body>
 </html>

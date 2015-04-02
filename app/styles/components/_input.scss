@@ -36,6 +36,7 @@ $select-input-active-bg-color: $white;
 $select-dropdown-border-color: #a3a4a5;
 $select-dropdown-hover-option-font-color: $white;
 $select-dropdown-hover-option-bg: linear-gradient(-179deg, #67afe8 0%, #4b82ec 100%);
+$select-description-color: #7d7d7d;
 
 $select-input-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, .5);
 $select-dropdown-box-shadown: 1px 2px 2px 0px rgba(233, 233, 233, .5);
@@ -110,9 +111,17 @@ $radio-selected-color: #64aff9;
     }
   }
 
+  .select-description { color: $select-description-color; }
+
   .select-control {
     position: relative;
+    display: inline-block;
     white-space: nowrap;
+
+    + .fn-btn { // 功能按钮
+      text-decoration: none;
+      color: #3ba5fd;
+    }
 
     .select-input {
       padding: $select-input-padding-top $select-input-padding-left;
@@ -171,9 +180,10 @@ $radio-selected-color: #64aff9;
     }
 
     &.min { // 小号
-      display: inline-block;
       .select-input { padding: $select-min-padding; }
       .option { padding: $select-min-padding !important; }
     }
+
+    
   }
 }

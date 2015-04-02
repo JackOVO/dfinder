@@ -38,6 +38,11 @@ $form-fieldset-bg-color: $white;
     padding: $more-row-padding;
   }
 
+  .more-content {
+    padding-top: 10px;
+    .checkbox { margin-bottom: 8px; }
+  }
+
   // 控件组
   .form-fieldset {
     display: inline-block;
@@ -47,5 +52,6 @@ $form-fieldset-bg-color: $white;
     background-color: $form-fieldset-bg-color;
 
     .select-control { margin-left: 6px; }
+    .radio { margin-bottom: 10px; }
   }
 }

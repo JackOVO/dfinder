@@ -9,9 +9,10 @@ $dialog-padding-left: rem-calc(20);
 $dialog-header-height: rem-calc(42);
 $dialog-bottom-height: rem-calc(50);
 $dialog-bottom-button-spacing: rem-calc(6);
-$dialog-content-table-td-padding-left: rem-calc(10);
+$dialog-content-table-td-padding-left: rem-calc(10); // td内侧不是th
 $dialog-content-table-td-filling: rem-calc(14);
 $dialog-more-margin-top: rem-calc(14);
+$dialog-more-margin-bottom: rem-calc(30);
 
 $dialog-border-radius: 4px;
 
@@ -34,13 +35,14 @@ $dialog-box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, .6);
 $dialog-z-index: 501;
 
   .dialog {
-margin-left: -($dialog-min-width / 2);
+//margin-left: -($dialog-min-width / 2);
     width: $dialog-min-width;
     border: 1px solid $dialog-border-color;
     border-radius: $dialog-border-radius;
     background-color: $dialog-bg-color;
     box-shadow: $dialog-box-shadow;
     font-size: $dialog-font-size;
+    color: $black;
 
     .dialog-header {
       height: $dialog-header-height;
@@ -73,11 +75,15 @@ margin-left: -($dialog-min-width / 2);
         padding-right: $dialog-padding-left;
       }
       tr, td, th { padding-top: $dialog-content-table-td-filling; }
+      td.lateral { // 外侧容器td
+        padding-top: 20px;
+        padding-left: $dialog-padding-left;
+      } 
 
       > .dialog-more {
         padding: 0 $dialog-padding-left;
         margin-top: $dialog-more-margin-top;
-        margin-bottom: 30px;
+        margin-bottom: $dialog-more-margin-bottom;
 
         .font-line {
           color: $dialog-more-font-line-color;
