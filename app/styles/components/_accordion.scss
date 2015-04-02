@@ -84,6 +84,7 @@ $accordion-indicator-font-color: rgba($white, .8);;
         height: 1px;
         border-top: 1px solid $accordion-content-border-color;
         overflow: hidden;
+        font-size: 12px;
 
         &.active { height: 500px; }
       }
@@ -125,6 +126,8 @@ $accordion-indicator-font-color: rgba($white, .8);;
           color: $accordion-font-color;
           &::after, &::before { background-color: $accordion-content-line-color; }
         }
+
+         .fn-fonthid { width: 100%; }
       }
     }
   }

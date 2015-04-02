@@ -25,6 +25,8 @@ $select-dropdown-content-max-height: rem-calc(150);
 $select-dropdown-content-padding: 5px 0 9px 0;
 $select-dropdown-option-padding: 5px 10px;
 
+$select-min-padding: 1px 7px; // 不调整行高
+
 // 下拉框颜色
 $select-disabled-bg-color: #f0f0f0;
 $select-input-border-color: #a3a4a5;
@@ -42,12 +44,19 @@ $select-dropdown-box-shadown: 1px 2px 2px 0px rgba(233, 233, 233, .5);
 $radio-point-diameter: rem-calc(15);
 $radio-point-spacing: rem-calc(8);
 $radio-point-border-color: gray;
+$radio-selected-color: #64aff9;
 
 @include exports ("input") {
 
+  .input-label {
+    display: inline-block;
+    margin-bottom: $checkbox-maring-bottom;
+    line-height: 1;
+    color: $black;
+  }
+
   .checkbox {
     display: inline-block;
-    width: 100%;
     margin-bottom: $checkbox-maring-bottom;
     line-height: 1;
     cursor: pointer;
@@ -79,6 +88,15 @@ $radio-point-border-color: gray;
   .radio {
     display: inline-block;
     cursor: pointer;
+    margin-right: 20px;
+
+    &.selected::before {
+      background-color: $radio-selected-color;
+      box-shadow: 2px 0 0 1px $white inset,
+       0 2px 0 1px $white inset,
+       -2px 0 0 1px $white inset,
+       0 -2px 0 1px $white inset;
+    }
 
     &::before {
       content: "";
@@ -90,27 +108,6 @@ $radio-point-border-color: gray;
       border: 1px solid $radio-point-border-color;
       border-radius: $radio-point-diameter;
     }
-// .mn-checkbox:before, .mn-radio:before {
-//   content: '';
-//   display: inline-block;
-//   margin-right: 8px;
-//     }
-
-    // .mn-check.mn-radio:before {
-    //   background-color: #64AFF9;
-    // }
-    // .mn-check.mn-radio:before {
-    //   background-color: #64AFF9;
-    // }
-    // .mn-radio:before {
-    //   box-shadow: 3px 0 0 1px #ffffff inset,
-    //  0 3px 0 1px #ffffff inset,
-    //  -3px 0 0 1px #ffffff inset,
-    //  0 -3px 0 1px #ffffff inset;
-    // }
-    // .mn-radio:before {
-    //   border-color: #A3A4A5;
-    // }
   }
 
   .select-control {
@@ -129,10 +126,7 @@ $radio-point-border-color: gray;
       @include icon-abs-before("triangle", (0, 0));
       &::before { top: auto; left: auto; right: $select-input-padding-left; }
 
-      &.selected {
-        color: $black;
-        background: $select-input-active-bg-color;
-      }
+      &.selected {  color: $black; }
 
       &.active {
         color: $black;
@@ -146,6 +140,7 @@ $radio-point-border-color: gray;
         color: $select-input-font-color;
         background-image: none;
         background-color: $select-disabled-bg-color;
+        cursor: default;
       }
     }
 
@@ -158,20 +153,27 @@ $radio-point-border-color: gray;
       background-color: $select-input-active-bg-color;
       box-shadow: $select-dropdown-box-shadown;
       @include side-radius(bottom, $select-input-border-radius-size);
+    }
 
-      .select-dropdown-content {
-        max-height: $select-dropdown-content-max-height;
-        padding: $select-dropdown-content-padding;
-        overflow-x: hidden;
-        overflow-y: auto;
+    .select-dropdown-content {
+      max-height: $select-dropdown-content-max-height;
+      padding: $select-dropdown-content-padding;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
 
-        .option { padding: $select-dropdown-option-padding; cursor: pointer;
-          &.hover, &:hover {
-            color: $select-dropdown-hover-option-font-color;
-            background: $select-dropdown-hover-option-bg;
-          }
-        }
+    .option {
+      padding: $select-dropdown-option-padding; cursor: pointer;
+      &.hover, &:hover {
+        color: $select-dropdown-hover-option-font-color;
+        background: $select-dropdown-hover-option-bg;
       }
+    }
+
+    &.min { // 小号
+      display: inline-block;
+      .select-input { padding: $select-min-padding; }
+      .option { padding: $select-min-padding !important; }
     }
   }
 }

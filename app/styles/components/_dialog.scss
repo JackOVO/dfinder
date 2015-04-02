@@ -22,6 +22,10 @@ $dialog-header-border-color: #a3a4a5;
 $dialog-bottom-bg-color: #f0f0f0;
 $dialog-more-font-line-color: #3b9eff;
 
+$checkbox-white-box-bg-color: $white;
+$checkbox-white-box-border-color: #a3a4a5;
+$checkbox-white-box-selected-color: #64aff9;
+
 // 字体定义
 $dialog-header-font-size: 16px;
 $dialog-font-size: 12px;
@@ -71,9 +75,9 @@ margin-left: -($dialog-min-width / 2);
       tr, td, th { padding-top: $dialog-content-table-td-filling; }
 
       > .dialog-more {
-        outline: 1px solid red;
         padding: 0 $dialog-padding-left;
         margin-top: $dialog-more-margin-top;
+        margin-bottom: 30px;
 
         .font-line {
           color: $dialog-more-font-line-color;
@@ -82,12 +86,23 @@ margin-left: -($dialog-min-width / 2);
         }
       }
 
+      .checkbox { // 高亮下多选控制
+        color: $black;
+        &:before {
+          border-color: $checkbox-white-box-border-color;
+          background-color:  $checkbox-white-box-bg-color;
+        }
+        &.selected {
+          color: $black;
+          &:before { background-color: $checkbox-white-box-selected-color; };
+        }
+      }
+
     }
 
     .dialog-bottom {
       height: $dialog-bottom-height;
       padding: 0 $dialog-padding-left 0 $dialog-padding-left;
-      margin-top: 30px;
       text-align: right;
       line-height: $dialog-bottom-height;
       background-color: $dialog-bottom-bg-color;

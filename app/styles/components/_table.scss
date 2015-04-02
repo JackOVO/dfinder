@@ -1,38 +1,29 @@
 @import "global";
 // 表格布局
 
-$table-highlight-td-filling: rem-calc(14);
+$table-highlight-td-filling: rem-calc(14); // 内容相驳
+
+$more-row-padding: rem-calc(15) 0 rem-calc(15) rem-calc(20);
 
 $table-highlight-border-color: #d3d5d9;
 $table-highlight-bg-color: $white;
 
-$checkbox-box-bg-color: $white;
-$checkbox-box-border-color: #a3a4a5;
-$checkbox-box-selected-color: #64aff9;
+$form-fieldset-padding: 7px 10px 0 19px;
+$form-fieldset-border-color: #d3d7d9;
+$form-fieldset-bg-color: $white;
 
 @include exports ("table") {
 
   // 高亮行
   tr.highlight {
     th, td {
-      padding-bottom: $table-highlight-td-filling;
+      padding-bottom: 4px;
       border-top: 1px solid $table-highlight-border-color;
       border-bottom: 1px solid $table-highlight-border-color;
       background-color: $table-highlight-bg-color;
     }
     th { vertical-align: top; }
-
-    .checkbox { // 高亮下多选控制
-      color: $black;
-      &:before {
-        border-color: $checkbox-box-border-color;
-        background-color:  $checkbox-box-bg-color;
-      }
-      &.selected {
-        color: $black;
-        &:before { background-color: $checkbox-box-selected-color; };
-      }
-    }
+    .checkbox { margin-bottom: 10px; }
   }
 
   // 高亮上
@@ -42,6 +33,19 @@ $checkbox-box-selected-color: #64aff9;
 
   // 更多一行容器
   .more-row {
-    display: black;
+    display: block;
+    line-height: 1;
+    padding: $more-row-padding;
+  }
+
+  // 控件组
+  .form-fieldset {
+    display: inline-block;
+    padding: $form-fieldset-padding;
+    margin: 0;
+    border: 1px solid $form-fieldset-border-color;
+    background-color: $form-fieldset-bg-color;
+
+    .select-control { margin-left: 6px; }
   }
 }

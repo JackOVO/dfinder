@@ -114,6 +114,11 @@ $plat-body-footer-bg-color: #f0f0f0;
 
     @at-root #plat-body-container {
       height: 100%;
+      overflow: auto;
+.dialog {
+  position: relative;
+  margin: 0;
+}
     }
 
     @at-root #plat-body-footer {
@@ -125,7 +130,7 @@ $plat-body-footer-bg-color: #f0f0f0;
   }
 }
 
-div {
+* {
   // outline: 1px solid orange;
 }
 
