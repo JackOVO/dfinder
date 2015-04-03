@@ -4,15 +4,12 @@
 @include exports ("dialog") {
 
 // 对话盒子模型
-$dialog-min-width: rem-calc(462);
+$dialog-min-width: rem-calc(422);
 $dialog-padding-left: rem-calc(20);
 $dialog-header-height: rem-calc(42);
+$dialog-content-padding-bottom: rem-calc(30);
 $dialog-bottom-height: rem-calc(50);
 $dialog-bottom-button-spacing: rem-calc(6);
-$dialog-content-table-td-padding-left: rem-calc(10); // td内侧不是th
-$dialog-content-table-td-filling: rem-calc(14);
-$dialog-more-margin-top: rem-calc(14);
-$dialog-more-margin-bottom: rem-calc(30);
 
 $dialog-border-radius: 4px;
 
@@ -22,10 +19,6 @@ $dialog-bg-color: #fafafa;
 $dialog-header-border-color: #a3a4a5;
 $dialog-bottom-bg-color: #f0f0f0;
 $dialog-more-font-line-color: #3b9eff;
-
-$checkbox-white-box-bg-color: $white;
-$checkbox-white-box-border-color: #a3a4a5;
-$checkbox-white-box-selected-color: #64aff9;
 
 // 字体定义
 $dialog-header-font-size: 16px;
@@ -62,48 +55,11 @@ $dialog-z-index: 501;
     }
 
     .dialog-content {
-      > table { width: 100%; }
-
-      th { // 标题
-        width: 1px;
-        padding-left: $dialog-padding-left;
-        text-align: left;
-        white-space: nowrap;
+      line-height: 1;
+      padding-bottom: $dialog-content-padding-bottom;
+      > table {
+        width: 100%;
       }
-      td {
-        padding-left: $dialog-content-table-td-padding-left;
-        padding-right: $dialog-padding-left;
-      }
-      tr, td, th { padding-top: $dialog-content-table-td-filling; }
-      td.lateral { // 外侧容器td
-        padding-top: 20px;
-        padding-left: $dialog-padding-left;
-      } 
-
-      > .dialog-more {
-        padding: 0 $dialog-padding-left;
-        margin-top: $dialog-more-margin-top;
-        margin-bottom: $dialog-more-margin-bottom;
-
-        .font-line {
-          color: $dialog-more-font-line-color;
-          cursor: pointer;
-          &:after { border-color: #d3d7d9 };
-        }
-      }
-
-      .checkbox { // 高亮下多选控制
-        color: $black;
-        &:before {
-          border-color: $checkbox-white-box-border-color;
-          background-color:  $checkbox-white-box-bg-color;
-        }
-        &.selected {
-          color: $black;
-          &:before { background-color: $checkbox-white-box-selected-color; };
-        }
-      }
-
     }
 
     .dialog-bottom {
@@ -117,3 +73,45 @@ $dialog-z-index: 501;
     }
   }
 }
+
+// $dialog-content-table-td-padding-left: rem-calc(10); // td内侧不是th
+// $dialog-content-table-td-filling: rem-calc(14);
+// $dialog-more-margin-top: rem-calc(14);
+// $dialog-more-margin-bottom: rem-calc(30);
+
+
+
+
+
+      // th { // 标题
+      //   width: 1px;
+      //   padding-left: $dialog-padding-left;
+      //   text-align: left;
+      //   white-space: nowrap;
+      // }
+      // td {
+      //   // padding-left: $dialog-content-table-td-padding-left;
+      //   padding-right: $dialog-padding-left;
+      // }
+      // tr, td, th { padding-top: $dialog-content-table-td-filling; }
+
+      // td.lateral { // 外侧容器td
+      //   padding-top: 20px;
+      //   padding-left: $dialog-padding-left;
+      // } 
+
+      // > .dialog-more {
+      //   padding: 0 $dialog-padding-left;
+      //   margin-top: $dialog-more-margin-top;
+      //   margin-bottom: $dialog-more-margin-bottom;
+
+      //   .font-line {
+      //     color: $dialog-more-font-line-color;
+      //     cursor: pointer;
+      //     &:after { border-color: #d3d7d9 };
+      //   }
+      // }
+
+      // .checkbox { // 高亮下多选控制
+
+      // }

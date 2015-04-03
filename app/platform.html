@@ -42,7 +42,7 @@
       <div id="plat-body-hander">
         <button class="hamburger"></button>
         <ul class="menu">
-          <li class="hover"><a href="#">文件</a>
+          <li class=""><a href="#">文件</a>
             <ul>
               <li><a href="javascript:;">新建工作簿</a></li>
               <li class="group-line"></li>
@@ -170,16 +170,16 @@
         </ul>
       </div><!-- 平台信息结束 -->
       <div id="plat-body-container">
-        <div class="panel dialog">
+        <div class="panel dialog" style="width:463px;">
           <div class="dialog-header">线性回归
             <span class="icon-bar">
               <i class="icon remove"></i>
             </span>
           </div>
           <div class="dialog-content">
-            <table><tbody>
-              <tr class="highlight-loft">
-                <th>因变量:</th>
+            <table class="table-grid"><tbody>
+              <tr>
+                <th>因变量：</th>
                 <td>
                   <div class="select-control">
                     <div class="select-input">请选择</div>
@@ -198,65 +198,68 @@
                       </div>
                     </div>
                   </div>
-                </td>
-              </tr>
+                </td></tr>
               <tr class="highlight">
-                <th>自变量:</th>
+                <th>自变量：</th>
                 <td>
-                  <label class="checkbox selected" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）森林火灾其他损失折款</label>
-                  <label class="checkbox" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
-                  <label class="checkbox" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
-                  <label class="checkbox selected" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）森林火灾其他损失折款</label>
+                  <label class="checkbox break">S5：用电量国内生产总值(亿千瓦小时)</label><br>
+                  <label class="checkbox break">S1：国内生产总值(亿元)</label><br>
+                  <label class="checkbox break">S2：总人口(万人)</label><br>
                 </td>
               </tr>
               <tr>
-                <th>选择方法:</th>
+                <th>选择方法：</th>
                 <td>
-                  <div class="select-control" style="width: 100px;">
+                  <div class="select-control" style="width:120px;">
                     <div class="select-input selected">进入法</div>
                     <div class="select-dropdown" style="display:none;">
                       <div class="select-dropdown-content">
-                        <div class="option">进入法</div>
+                        <div class="option">没办法</div>
                       </div>
                     </div>
                   </div>
                 </td>
               </tr>
             </tbody></table>
-            <div class="dialog-more">
+            <div class="more-block">
               <span class="font-line">收起参数设置</span>
-              <div class="more-row">
-                常数项：<label class="radio selected" style="margin-left:15px;">默认</label>
+              <div class="more-row inside">
+                常数项：
+                <label class="radio selected">默认</label>
                 <label class="radio">无</label>
               </div>
-            <fieldset class="form-fieldset" style="width:215px;">
-              <legend>保存项：</legend>
-              <label class="checkbox break">标准化预测值</label><br>
-              <label class="checkbox break">标准化残差</label><br>
-              <label class="checkbox break">预测区间置信水平</label>
-              <div class="select-control min" style="width:52px;">
-                <div class="select-input disabled">95%</div>
-                <div class="select-dropdown" style="display:none;">
-                  <div class="select-dropdown-content">
-                    <div class="option">地三鲜</div>
+              <fieldset class="table-fieldset" style="width:215px;">
+                <legend>保存项：</legend>
+                <label class="checkbox break">标准化预测值</label><br>
+                <label class="checkbox break">标准化残差</label><br>
+                <div style="margin-top:-5px;">
+                  <label class="checkbox break">预测区间置信水平</label>
+                  <div class="select-control min" style="width:52px;">
+                    <div class="select-input disabled">95%</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">地三鲜</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </fieldset>
-            <fieldset class="form-fieldset right" style="width:196px;">
-              <legend>系数项：</legend>
-              <label class="input-label">回归系数置信水平</label>
-              <div class="select-control min" style="width:52px;">
-                <div class="select-input selected">90%</div>
-                <div class="select-dropdown" style="display:none;">
-                  <div class="select-dropdown-content">
-                    <div class="option">地三鲜</div>
+              </fieldset>
+              <fieldset class="table-fieldset right" style="width:196px;">
+                <legend>系数项：</legend>
+                <div style="margin-top:-5px;">
+                  <label class="input-text">回归系数置信水平</label>
+                  <div class="select-control min" style="width:52px;">
+                    <div class="select-input selected">95%</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">地三鲜</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div><br>
-              <label class="checkbox break">协方差矩阵</label><br>
-              <label class="checkbox break">共线性诊断</label>
-            </fieldset>
+                <label class="checkbox break">协方差矩阵</label><br>
+                <label class="checkbox break">共线性诊断</label>
+              </fieldset>
             </div>
           </div>
           <div class="dialog-bottom">
@@ -265,15 +268,15 @@
           </div>
         </div>
 
-        <div class="panel dialog">
+         <div class="panel dialog" style="width:463px;">
           <div class="dialog-header">
             Arima<span class="icon-bar"><i class="icon remove"></i></span>
           </div>
           <div class="dialog-content">
-            <table><tbody>
+            <table class="table-grid"><tbody>
               <tr>
                 <th>因变量：</th>
-                <td style="padding-left:0;">
+                <td>
                   <div class="select-control" style="width:305px;">
                     <div class="select-input selected">请选择</div>
                     <div class="select-dropdown" style="display:none;">
@@ -282,18 +285,26 @@
                       </div>
                     </div>
                   </div>
-                  <a href="javascript:;" class="fn-btn" style="margin-left:3px;">添加变量</a>
+                  <a href="javascript:;" style="margin-left:1px;" class="fn-btn">添加变量</a>
                 </td>
               </tr>
               <tr>
-                <td colspan="2" class="lateral">
-                  <fieldset class="form-fieldset" style="width:248px;">
+                <td colspan="2" class="table-grid-single">
+                  <fieldset class="table-fieldset" style="width:248px;height:118px;">
                     <legend>模型阶段：</legend>
-                    <label class="input-label">自回归：</label><br>
-                    <label class="input-label">差分：</label><br>
-                    <label class="input-label">移动平均：</label>
+                    <label class="input-text" style="margin-right:27px;">自回归：</label>
+                    p&nbsp;<input type="text" value="p">
+                    sp&nbsp;<input type="text" style="margin:0;" value="sp">
+                    <br>
+                    <label class="input-text" style="margin-right:39px;">差分：</label>
+                    d&nbsp;<input type="text" value="d">
+                    sd&nbsp;<input type="text" style="margin:0;" value="sd">
+                    <br>
+                    <label class="input-text" style="margin-right:15px;">移动平均：</label>
+                    q&nbsp;<input type="text" value="q">
+                    sq&nbsp;<input type="text" style="margin:0;" value="sq">
                   </fieldset>
-                  <fieldset class="form-fieldset right" style="width:163px; height:116px;">
+                  <fieldset class="table-fieldset right" style="width:163px;height:118px;">
                     <legend>因变量转换：</legend>
                     <label class="radio selected">默认</label><br>
                     <label class="radio">平方根</label><br>
@@ -304,20 +315,21 @@
               <tr>
                 <th>样本区间：</th>
                 <td>
+                  &nbsp;&nbsp;
                   <div class="select-control" style="width:70px;">
                     <div class="select-input selected">Jan-78</div>
                     <div class="select-dropdown" style="display:none;">
                       <div class="select-dropdown-content">
-                        <div class="option">豆角烧茄子</div>
+                        <div class="option">地三鲜</div>
                       </div>
                     </div>
                   </div>
-                  <span style="display:inline-block;height:1px;width:10px;margin:0 8px;background:#a3a4a5;vertical-align: middle;"></span>
+                  <span class="select-copulation"></span>
                   <div class="select-control" style="width:70px;">
                     <div class="select-input selected">Jan-79</div>
                     <div class="select-dropdown" style="display:none;">
                       <div class="select-dropdown-content">
-                        <div class="option">豆角烧茄子</div>
+                        <div class="option">地三鲜</div>
                       </div>
                     </div>
                   </div>
@@ -326,11 +338,12 @@
               <tr>
                 <th>预测终点：</th>
                 <td>
+                  &nbsp;&nbsp;
                   <div class="select-control" style="width:70px;">
                     <div class="select-input selected">Dec-89</div>
                     <div class="select-dropdown" style="display:none;">
                       <div class="select-dropdown-content">
-                        <div class="option">豆角烧茄子</div>
+                        <div class="option">地三鲜</div>
                       </div>
                     </div>
                   </div>
@@ -339,38 +352,164 @@
                     <div class="select-input selected">95%</div>
                     <div class="select-dropdown" style="display:none;">
                       <div class="select-dropdown-content">
-                        <div class="option">豆角烧茄子</div>
+                        <div class="option">地三鲜</div>
                       </div>
                     </div>
                   </div>
                 </td>
               </tr>
             </tbody></table>
-            <div class="dialog-more">
+            <div class="more-block">
               <span class="font-line">收起统计量设置</span>
-              <div class="more-content">
-                <label class="checkbox break">参数统计</label><br>
-                <label class="checkbox break">残差自相关函数</label>
-      <span class="select-description" style="margin-left:40px;">最大滞后数：</span>
-                <div class="select-control min" style="width:52px;">
-                  <div class="select-input disabled">20</div>
-                  <div class="select-dropdown" style="display:none;">
-                    <div class="select-dropdown-content">
-                      <div class="option">豆角烧茄子</div>
+              <label class="checkbox break">参数统计</label><br>
+              <label class="checkbox break">残差自相关函数</label><br>
+              <label class="checkbox break">残差偏自相关函数</label>
+            </div>
+       
+<!-- <div class="dialog-more">
+  <span class="font-line">收起统计量设置</span>
+  <div class="more-content">
+    <label class="checkbox break">参数统计</label><br>
+    <label class="checkbox break">残差自相关函数</label>
+    <span class="select-description" style="margin-left:40px;">最大滞后数：</span>
+    <div class="select-control min" style="width:52px;">
+      <div class="select-input disabled">20</div>
+      <div class="select-dropdown" style="display:none;">
+        <div class="select-dropdown-content">
+          <div class="option">豆角烧茄子</div>
+        </div>
+      </div>
+    </div>
+    <br>
+  <label class="checkbox break" style="margin-bottom:0;">残差自偏相关函数</label>
+  <span class="select-description" style="margin-left:28px;">最大滞后数：</span>
+  <div class="select-control min" style="width:52px;">
+    <div class="select-input disabled">20</div>
+    <div class="select-dropdown" style="display:none;">
+      <div class="select-dropdown-content">
+        <div class="option">豆角烧茄子</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div> -->
+          </div>
+          <div class="dialog-bottom">
+            <button class="tiny cancel">取消</button>
+            <button class="small confirm disabled">确定</button>
+          </div>
+        </div>
+<!--
+        <div class="panel dialog" style="width:422px;">
+          <div class="dialog-header">
+            二阶段最小二乘
+            <span class="icon-bar">
+              <i class="icon remove"></i>
+            </span>
+          </div>
+          <div class="dialog-content">
+            <table><tbody>
+              <tr class="highlight-loft">
+                <th>因变量：</th>
+                <td>
+                  <div class="select-control">
+                    <div class="select-input">请选择</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">豆角烧茄子</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <br>
-              <label class="checkbox break" style="margin-bottom:0;">残差自偏相关函数</label>
-      <span class="select-description" style="margin-left:28px;">最大滞后数：</span>
-              <div class="select-control min" style="width:52px;">
-                <div class="select-input disabled">20</div>
+                </td>
+              </tr>
+              <tr class="highlight">
+                <th>解释变量：</th>
+                <td>
+                  <label class="checkbox selected fn-fonthid" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
+                  <label class="checkbox fn-fonthid" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
+                  <label class="checkbox fn-fonthid" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
+                  <label class="checkbox fn-fonthid" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
+                </td>
+              </tr>
+              <tr><td colspan="2" style="height:14px;"></td></tr>
+              <tr class="highlight">
+                <th>工具变量：</th>
+                <td>
+                  <label class="checkbox selected fn-fonthid" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
+                  <label class="checkbox fn-fonthid" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
+                  <label class="checkbox fn-fonthid" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
+                  <label class="checkbox fn-fonthid" title="森林火灾其他损失折款（万元）">森林火灾其他损失折款（万元）</label>
+                </td>
+              </tr>
+            </tbody></table>
+            <div class="dialog-more">
+              <label class="checkbox selected" style="margin-bottom:0;">在等式中包含常量</label>
+            </div>
+          </div>
+          <div class="dialog-bottom">
+            <button class="tiny cancel">取消</button>
+            <button class="small confirm disabled">确定</button>
+          </div>
+        </div>
+
+        <div class="panel dialog" style="width:422px;">
+          <div class="dialog-header">
+            偏相关分析
+            <span class="icon-bar">
+              <i class="icon remove"></i>
+            </span>
+          </div>
+          <div class="dialog-content">
+            <table><tbody>
+              <tr>
+                <th>变量1：</th>
+                <td>
+                  <div class="select-control">
+                    <div class="select-input">请选择</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">因变量</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="highlight-loft">
+                <th>变量2：</th>
+                <td>
+                  <div class="select-control">
+                    <div class="select-input">请选择</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">因变量</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="highlight">
+                <th>控制变量：</th>
+                <td>
+                  <label class="checkbox fn-fonthid">S2：总人口(万人)</label><br>
+                  <label class="checkbox fn-fonthid">S2：总人口(万人)</label><br>
+                  <label class="checkbox fn-fonthid">S2：总人口(万人)总人口总人口</label><br>
+                  <label class="checkbox fn-fonthid">S2：总人口(万人)</label><br>
+                </td>
+              </tr>
+            </tbody></table>
+            <div class="dialog-more">
+              <label class="label-font">显著性检验：</label>
+              <span class="radio selected">双侧</span>
+              <span class="radio">单侧</span><br>
+              <div style="margin-top:14px;"></div>
+              <label class="label-font">置信区间水平：</label>
+              <div class="select-control" style="width:60px;">
+                <div class="select-input selected">99%</div>
                 <div class="select-dropdown" style="display:none;">
                   <div class="select-dropdown-content">
-                    <div class="option">豆角烧茄子</div>
+                    <div class="option">99</div>
                   </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>
@@ -379,6 +518,152 @@
             <button class="small confirm disabled">确定</button>
           </div>
         </div>
+
+        <div class="panel dialog" style="width:420px;">
+          <div class="dialog-header">
+            曲线估计
+            <span class="icon-bar">
+              <i class="icon remove"></i>
+            </span>
+          </div>
+          <div class="dialog-content" style="height:281px;">
+            <table><tbody>
+              <tr>
+                <th>因变量：</th>
+                <td>
+                  <div class="select-control">
+                    <div class="select-input">请选择</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">因变量</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="highlight-loft">
+                <th>自变量：</th>
+                <td>
+                  <div class="select-control">
+                    <div class="select-input">请选择</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">因变量</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="highlight">
+                <th>选择模型：</th>
+                <td>
+                  <label class="checkbox fn-fonthid" style="width:98px;">线性</label>
+                  <label class="checkbox fn-fonthid" style="width:98px;">逆模型</label>
+                  <label class="checkbox fn-fonthid" style="width:74px;">对数</label>
+                  <label class="checkbox fn-fonthid" style="">S</label>
+                  <label class="checkbox fn-fonthid" style="width:98px;">指数分布</label>
+                  <label class="checkbox fn-fonthid" style="width:98px;">增长</label>
+                  <label class="checkbox fn-fonthid" style="width:98px;">二次项</label>
+                  <label class="checkbox fn-fonthid" style="width:98px;">立方</label>
+                  <label class="checkbox fn-fonthid" style="width:98px;">复合</label>
+                  <label class="checkbox fn-fonthid" style="width:98px;">幂</label>
+                </td>
+              </tr>
+            </tbody></table>
+            <div class="dialog-more">
+              <label class="checkbox">预测置信区间水平：</label>
+              <div class="select-control" style="width:60px;">
+                <div class="select-input disabled">99%</div>
+                <div class="select-dropdown" style="display:none;">
+                  <div class="select-dropdown-content">
+                    <div class="option">99</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dialog-bottom">
+            <button class="tiny cancel">取消</button>
+            <button class="small confirm disabled">确定</button>
+          </div>
+        </div>
+
+        <div class="panel dialog" style="width:260px;">
+          <div class="dialog-header">
+            时间聚合
+            <div class="icon-bar">
+              <i class="icon remove"></i>
+            </div>
+          </div>
+          <div class="dialog-content">
+            <table><tbody>
+              <tr><td style="padding-left:20px;padding-bottom:5px;">
+                <div class="select-control" style="">
+                  <div class="select-input selected">年度</div>
+                  <div class="select-dropdown" style="display:none;">
+                    <div class="select-dropdown-content">
+                      <div class="option">地三鲜</div>
+                    </div>
+                  </div>
+                </div>
+              </td></tr>
+              <tr><td style="padding-bottom:14px;"><button class="tiny confirm disabled right">确定</button></td></tr>
+            </tbody></table>
+          </div>
+        </div>
+
+        <div class="panel dialog" style="width:420px;">
+          <div class="dialog-header">
+            双变量相关分析
+            <span class="icon-bar">
+              <i class="icon remove"></i>
+            </span>
+          </div>
+          <div class="dialog-content">
+            <table><tbody>
+              <tr><td style="height:14px;"></td></tr>
+              <tr class="highlight">
+                <th>选变量：</th>
+                <td>
+                  <label class="checkbox">S1:用电量(亿万兆)</label><br>
+                  <label class="checkbox">S2:用电量</label><br>
+                  <label class="checkbox">S3:总人口(亿人)</label><br>
+                  <label class="checkbox">S4:用电量</label><br>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="lateral">
+                  <fieldset class="form-fieldset" style="width:378px;height:50px;padding-bottom:49px;">
+                    <legend>选择系数：</legend>
+                    <label class="checkbox" style="margin-right:30px;">Pearson</label>
+                    <label class="checkbox" style="margin-right:30px;">Kendall's tau-b</label>
+                    <label class="checkbox" style="margin-right:30px;">Spearman</label>
+                  </fieldset>
+                </td>
+              </tr>
+            </tbody></table>
+            <div class="dialog-more">
+              <label class="label-font">显著性检验：</label>
+              <span class="radio selected">双侧</span>
+              <span class="radio">单侧</span><br>
+              <div style="margin-top:14px;"></div>
+              <label class="label-font">置信区间水平：</label>
+              <div class="select-control" style="width:60px;">
+                <div class="select-input selected">99%</div>
+                <div class="select-dropdown" style="display:none;">
+                  <div class="select-dropdown-content">
+                    <div class="option">99</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dialog-bottom">
+            <button class="tiny cancel">取消</button>
+            <button class="small confirm disabled">确定</button>
+          </div>
+        </div> -->
+
       </div><!-- 平台容器块结束 -->
       <div id="plat-body-footer">
         <span class="tabs-item selected fn-fonthid">啊哈哈哈哈哈啊哈哈哈<i class="icon-m-close"></i></span><span class="tabs-item fn-fonthid" title="在阴暗中默默的吃着胡萝卜">在阴暗中默默的吃着胡萝卜<i class="icon-m-close"></i></span><span class="tabs-item fn-fonthid">吃就吃你别乱扔啊!!<i class="icon-m-close"></i></span>
@@ -387,14 +672,14 @@
     </div> <!--  平台主体结束 -->
   </div> <!-- 平台主体容器结束 -->
 
-  <div class="panel list" style="top:72px;left:401px;width:120px;">
+  <div class="panel list" style="display:none;top:72px;left:401px;width:120px;">
     <span class="font-block selected">宋体</span>
     <span class="font-block">微软雅黑</span>
     <span class="font-block">楷体</span>
     <span class="font-block">隶书</span>
   </div>
 
-  <div class="panel list" style="top:72px;left:524px;width:50px;">
+  <div class="panel list" style="display:none;top:72px;left:524px;width:50px;">
     <span class="font-block selected">10</span>
     <span class="font-block">12</span>
     <span class="font-block">14</span>
@@ -402,7 +687,7 @@
     <span class="font-block">24</span>
   </div>
 
-  <div class="panel list color-container" style="top:72px;left:679px;">
+  <div class="panel list color-container" style="display:none;top:72px;left:679px;">
     <div class="color-group">
       <i class="color-block selected" style="background-color: #FF0300;">
       </i><i class="color-block" style="background-color: #FF6765;">
@@ -441,14 +726,47 @@
     <button class="custom-btn">自定义</button>
   </div>
 
-  <div class="panel list" style="top:72px;left:859px;width:100px;">
+  <div class="panel list" style="display:none;top:72px;left:859px;width:100px;">
     <span class="font-block">空值</span>
     <span class="font-block">非空值</span>
     <span class="font-block">零值</span>
     <span class="font-block">自定义</span>
   </div>
 
-  
+<!--   <div class="panel dialog" style="width:420px;top:0;left:35%;">
+    <div class="dialog-header">
+      搜索指标
+      <span class="icon-bar">
+        <i class="icon-remove"></i>
+      </span>
+    </div>
+    <div class="dialog-content">
+      <table><tbody>
+        <tr><td style="height:15px;padding:0;"></td></tr>
+        <tr class="highlight">
+          <td class="lateral" style="padding-top:0;padding-bottom:0;">
+          <input type="text" class="input-serch" value="人">
+          </td>
+        </tr>
+        <tr><td style="height:10px;padding:0;"></td></tr>
+        <tr class="highlight">
+          <td class="lateral">
+            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
+            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
+            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
+            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
+            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
+            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="dialog-bottom">
+      <button class="tiny cancel">取消</button>
+      <button class="small confirm disabled">确定</button>
+    </div>
+  </div> -->
+
   <!-- 全局弹出块结束 -->
 </body>
 </html>

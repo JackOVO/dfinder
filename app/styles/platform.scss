@@ -1,5 +1,6 @@
 // 平台页引入, 以及对平台的布局数值定义
 // 属性顺序: 先高后宽, 先内后外
+// 对于dialog,panel,table,input上的区分和通用上还需要处理.
 
 @import "normalize.scss";
 @import "components/_global.scss";

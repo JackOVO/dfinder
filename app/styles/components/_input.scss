@@ -6,7 +6,6 @@
 $checkbox-box-width: rem-calc(11);
 $checkbox-box-height: rem-calc(11);
 $checkbox-text-spacing: rem-calc(8);
-$checkbox-maring-bottom: rem-calc(15);
 
 // 多选框颜色
 $checkbox-font-color: rgba(255, 255, 255, .5);
@@ -15,6 +14,10 @@ $checkbox-box-bg-color: #7c828b;
 $checkbox-box-border-color: #3f454c;
 $checkbox-box-selected-color: #64aff9;
 $checkbox-box-selected-bg-color: $white;
+
+$checkbox-break-box-bg-color: $white;
+$checkbox-break-box-border-color: #a3a4a5;
+$checkbox-break-box-selected-color: #64aff9;
 
 // 下拉框尺寸
 $select-input-padding-top: 4px;
@@ -26,6 +29,12 @@ $select-dropdown-content-padding: 5px 0 9px 0;
 $select-dropdown-option-padding: 5px 10px;
 
 $select-min-padding: 1px 7px; // 不调整行高
+
+// 输入注释文本(小)
+$input-text-width: rem-calc(40);
+$input-text-height: rem-calc(20);
+$input-text-margin-right: rem-calc(20);
+$input-text-border-color: #d3d7d9;
 
 // 下拉框颜色
 $select-disabled-bg-color: #f0f0f0;
@@ -47,19 +56,13 @@ $radio-point-spacing: rem-calc(8);
 $radio-point-border-color: gray;
 $radio-selected-color: #64aff9;
 
-@include exports ("input") {
+// 行内输入元素间隔
+$inline-input-item-gap: rem-calc(6);
 
-  .input-label {
-    display: inline-block;
-    margin-bottom: $checkbox-maring-bottom;
-    line-height: 1;
-    color: $black;
-  }
+@include exports ("input") {
 
   .checkbox {
     display: inline-block;
-    margin-bottom: $checkbox-maring-bottom;
-    line-height: 1;
     cursor: pointer;
     color: $checkbox-font-color;
 
@@ -83,6 +86,18 @@ $radio-selected-color: #64aff9;
 
       border-color: $checkbox-box-border-color;
       background-color: $checkbox-box-bg-color
+    }
+
+    &.break { // 换一个皮肤
+      color: $black;
+      &:before {
+        border-color: $checkbox-break-box-border-color;;
+        background-color:  $checkbox-break-box-bg-color;
+      }
+      &.selected {
+        color: $black;
+        &:before { background-color: $checkbox-break-box-selected-color; };
+      }
     }
   }
 
@@ -116,12 +131,11 @@ $radio-selected-color: #64aff9;
   .select-control {
     position: relative;
     display: inline-block;
+    width: 100%;
     white-space: nowrap;
 
-    + .fn-btn { // 功能按钮
-      text-decoration: none;
-      color: #3ba5fd;
-    }
+    // 功能按钮
+    + .fn-btn { text-decoration: none;  color: #3ba5fd; }
 
     .select-input {
       padding: $select-input-padding-top $select-input-padding-left;
@@ -129,6 +143,7 @@ $radio-selected-color: #64aff9;
       border-radius: $select-input-border-radius-size;
       background: $select-input-bg;
       box-shadow: $select-input-box-shadow;
+      line-height: 1.5;
       color: $select-input-font-color;
       cursor: pointer;
 
@@ -183,7 +198,19 @@ $radio-selected-color: #64aff9;
       .select-input { padding: $select-min-padding; }
       .option { padding: $select-min-padding !important; }
     }
+  }
 
-    
+  .select-copulation { // 连接线
+    display: inline-block;
+    height: 1px;
+    width: 10px;
+    margin: 0 8px;
+    vertical-align: middle;
+    background-color: #a3a4a5;
+  }
+
+  .input-text + .select-control,
+  .checkbox + .select-control { // 同行间隔
+    margin-left:$inline-input-item-gap;
   }
 }

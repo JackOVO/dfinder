@@ -29,6 +29,7 @@ $accordion-hander-letter-spacing: 2px;
 $accordion-header-active-before-width: rem-calc(10);
 
 // 内容项
+$accordion-content-font-size: 12px;
 $accordion-content-block-spacing: rem-calc(20);
 $accordion-content-line-color: #838a93;
 
@@ -84,9 +85,10 @@ $accordion-indicator-font-color: rgba($white, .8);;
         height: 1px;
         border-top: 1px solid $accordion-content-border-color;
         overflow: hidden;
-        font-size: 12px;
+        font-size: $accordion-content-font-size;
 
         &.active { height: 500px; }
+        .checkbox { margin-bottom: 15px; }
       }
 
       // 指标项
