@@ -48,9 +48,8 @@
     .dialog-signup {
       box-sizing: border-box;
       width: 290px;
-      height: 300px;
       margin: 30px auto 0 auto;
-      padding: 30px 0 0 30px;
+      padding: 30px 30px 0 30px;
 
       border: 1px solid #fd6e6e;
       background-color: #edf1f5;
@@ -87,12 +86,12 @@
       position: absolute;
       width: 0;
       height: 0;
-      border: 15px solid #edf1f5;
+      border: 14px solid #edf1f5;
       border-top-color: transparent;
       border-left-color: transparent;
       border-right-color: transparent;
-      top: -43px;
-      left: 78px;
+      top: -38px;
+      left: 79px;
       z-index: 2;
     }
     .dialog-signup input {
@@ -106,12 +105,13 @@
       outline: 0;
     }
     .dialog-signup input.last {
-      width: 120px;
+      width: 110px;
       margin-bottom: 0;
       margin-right: 8px;
     }
     .dialog-bottom {
-      margin-top: 45px;
+      margin-top: 30px;
+      text-align: center;
     }
     .dialog-signup input:hover {
       border: 1px solid #3b9eff;
@@ -126,7 +126,7 @@
       border: 1px solid #58a3fc;
       box-shadow: 0 1px 1px #7a7a7a;
 
-      width: 160px;
+      width: 100%;
       height: 40px;
       font-weight: bold;
       font-family: \5fae\8f6f\96c5\9ed1, tahoma;
@@ -151,9 +151,10 @@
       background-color: #d3d7d9;
     }
     .sign-up-ip {
+      display: inline-block;
       font-size: 14px;
       color: #ff9595;
-      margin-left: 22px;
+      margin: 15px auto 30px;
     }
   </style>
 </head>
@@ -173,37 +174,37 @@
     <input class="last" type="text" value="" placeholder="验证码">
     <span class="verification">&nbsp;</span>
     <div class="dialog-bottom">
-      <button class="sign-up disable">登陆</button>
-      <a class="sign-up-ip" href="javascript:;">IP登陆</a>
+      <button class="sign-up disable">登陆</button><br>
+      <a class="sign-up-ip" href="javascript:;">校园IP登陆</a>
     </div>
   </div>
 
-  <div class="container">
-    <div class="box left">我是标题LEFT</div>
-    <div class="box">
-      <span>什么小炒肉</span>
-      <span>千叶豆腐</span>
-      <span>什么小炒肉</span>
-      <span>千叶豆腐</span><span>千叶豆腐千叶豆腐</span>
-      <span>千叶豆腐</span>
-    </div>
+<!--   <div class="container">
+  <div class="box left">我是标题LEFT</div>
+  <div class="box">
+    <span>什么小炒肉</span>
+    <span>千叶豆腐</span>
+    <span>什么小炒肉</span>
+    <span>千叶豆腐</span><span>千叶豆腐千叶豆腐</span>
+    <span>千叶豆腐</span>
   </div>
-  <style>
-    .container {
-      padding-left: 100px;
-      outline: 1px solid green;
-    }
-    .left {
-      margin-left: -100px;
-      float: left;
-    }
-    .box { outline: 1px solid red; }
-    .box span {
-      display: inline-block;
-      width: 150px;
-      outline: 1px solid orange;
-      text-align: left;
-    }
-  </style>
+</div>
+<style>
+  .container {
+    padding-left: 100px;
+    outline: 1px solid green;
+  }
+  .left {
+    margin-left: -100px;
+    float: left;
+  }
+  .box { outline: 1px solid red; }
+  .box span {
+    display: inline-block;
+    width: 150px;
+    outline: 1px solid orange;
+    text-align: left;
+  }
+</style> -->
 </body>
 </html>
