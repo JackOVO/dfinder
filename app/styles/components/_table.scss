@@ -17,6 +17,8 @@ $table-fieldset-input-item-bottom: rem-calc(12);
 $table-fieldset-border-color: #d3d7d9;
 $table-fieldset-bg-color: $white;
 
+$more-block-input-item-bottom: rem-calc(8);
+
 // $table-highlight-td-filling: rem-calc(14); // 内容相驳
 
 // $more-row-padding: rem-calc(15) 0 rem-calc(15) rem-calc(20);
@@ -91,8 +93,13 @@ input { //?
     padding-left: $table-side-padding;
     padding-right: $table-side-padding;
 
-    .font-line { color: $more-block-font-line-color; }
+    .font-line {
+      color: $more-block-font-line-color;
+      margin-bottom: $table-row-spacing;
+    }
     .radio { margin-right: $more-block-input-item-right; }
+    .checkbox { margin-bottom: $more-block-input-item-bottom; }
+    > .checkbox:last-child { margin-bottom: 0; }
 
     .more-row {
       padding-top: $table-row-spacing;
@@ -100,6 +107,9 @@ input { //?
 
       &.inside { padding-left: $table-side-padding; }
     }
+    > .more-row:last-child { padding-bottom: 0; }
+    .font-line + .more-row { padding-top: 0; }
+
   }
 
     // .input-label {
