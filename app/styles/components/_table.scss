@@ -5,6 +5,7 @@ $table-row-spacing: rem-calc(14); // 行间隔
 $table-side-padding: rem-calc(20); // 表格侧边填充
 
 $highlight-input-item-bottom: rem-calc(10);
+$highlight-content-padding-left: rem-calc(10); // 内容区内边距
 $highlight-border-color: #d3d5d9;
 $highlight-bg-color: $white;
 
@@ -81,6 +82,9 @@ input { //?
       border-top: 1px solid $highlight-border-color;
       border-bottom: 1px solid $highlight-border-color;
       background-color: $highlight-bg-color;
+    }
+    td.highlight-content {
+      padding-left: $highlight-content-padding-left;
     }
 
     .checkbox {

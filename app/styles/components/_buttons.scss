@@ -172,6 +172,7 @@ $button-disabled-border-color: #323232;
     @include single-transition(background-color);
 
     // 尺寸
+    &.short { @include button-size($side-width: $button-tny-side,$line-height: 20px); }
     &.tiny { @include button-size($side-width: $button-tny-side); }
     &.small { @include button-size($side-width: $button-sml-side); }
     &.large { @include button-size(
