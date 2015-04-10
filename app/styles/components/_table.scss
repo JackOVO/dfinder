@@ -1,11 +1,18 @@
 @import "global";
 // 表格布局
 
+$table-margin-top: rem-calc(15); // 外侧项单独上边距间隔
 $table-row-spacing: rem-calc(14); // 行间隔
 $table-side-padding: rem-calc(20); // 表格侧边填充
 
-$highlight-input-item-bottom: rem-calc(10);
+$highlight-input-item-bottom: rem-calc(10); // 输入项下边距
 $highlight-content-padding-left: rem-calc(10); // 内容区内边距
+$highlight-div-margin-top: rem-calc(10);
+$highlight-div-padding:
+  $table-row-spacing
+  $table-side-padding
+  $table-row-spacing
+  $table-side-padding;
 $highlight-border-color: #d3d5d9;
 $highlight-bg-color: $white;
 
@@ -17,6 +24,10 @@ $table-fieldset-padding: 0 10px 0 19px;
 $table-fieldset-input-item-bottom: rem-calc(12);
 $table-fieldset-border-color: #d3d7d9;
 $table-fieldset-bg-color: $white;
+
+$table-fieldset-input-height: rem-calc(22);
+$table-fieldset-input-width: rem-calc(38);
+$table-fieldset-border-color: #d3d7d9;
 
 $more-block-input-item-bottom: rem-calc(8);
 
@@ -36,18 +47,23 @@ $more-block-input-item-bottom: rem-calc(8);
       white-space: nowrap;
     }
     th, td {
-      //border: 1px solid green;
       padding-top: $table-row-spacing;
       padding-bottom: $table-row-spacing;
     }
     th:first-child { padding-left: $table-side-padding; } // 描述性文字
-    td:last-child { padding-right: $table-side-padding; }
+    td:last-child { padding-right: $table-side-padding; } // 内容限制宽度
 
     tr + tr { th, td { padding-top: 0; } } // 清零
     tr.highlight, tr.highlight + tr { th, td { padding-top: $table-row-spacing; } }
+    td.table-top { padding-bottom: 0; padding-top: $table-margin-top; }
 
     // 单容器
     .table-grid-single {
+      padding-left: $table-side-padding;
+      padding-right: $table-side-padding;
+    }
+    // 全输入框
+    .expand-input {
       padding-left: $table-side-padding;
       padding-right: $table-side-padding;
     }
@@ -68,12 +84,13 @@ $more-block-input-item-bottom: rem-calc(8);
     .radio { margin-bottom: $table-fieldset-input-item-bottom - rem-calc(2); }
     .checkbox { margin-bottom: $table-fieldset-input-item-bottom; }
     legend { margin-bottom: $table-fieldset-top; }
-input { //?
-  outline: 0;
-  height: 22px; width: 38px;
-  border: 1px solid #d3d7d9;
-  margin-right: 20px;
-} 
+    input { // 小输入框框框
+      outline: 0;
+      height: $table-fieldset-input-height;
+      width: $table-fieldset-input-width;
+      border: 1px solid $table-fieldset-border-color;
+      margin-right: 20px;
+    } 
   }
 
   .highlight { // 高亮显示块
@@ -91,6 +108,14 @@ input { //?
       margin-bottom: $highlight-input-item-bottom;
       &:nth-last-of-type(1) { margin-bottom: 0; }
     }
+  }
+  div.highlight {
+    overflow: auto;
+    padding: $highlight-div-padding;
+    margin-top: $highlight-div-margin-top;
+    background-color: $highlight-bg-color;
+    border-top: 1px solid $highlight-border-color;
+    border-bottom: 1px solid $highlight-border-color;
   }
 
   .more-block { // 扩展块

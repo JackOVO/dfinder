@@ -56,6 +56,12 @@ $radio-point-spacing: rem-calc(8);
 $radio-point-border-color: gray;
 $radio-selected-color: #64aff9;
 
+// 占全input
+$expand-input-height: rem-calc(38);
+$expand-input-width: 100%;
+$expand-input-border-color: #d3d5d9;
+$expand-input-font-size: rem-calc(16);
+
 // 行内输入元素间隔
 $inline-input-item-gap: rem-calc(6);
 
@@ -212,5 +218,16 @@ $inline-input-item-gap: rem-calc(6);
   .input-text + .select-control,
   .checkbox + .select-control { // 同行间隔
     margin-left:$inline-input-item-gap;
+  }
+
+  // 占满input
+  .expand-input {
+    height: $expand-input-height;
+    width: $expand-input-width;
+    border: 1px solid $expand-input-border-color;
+    border-right: 0; border-left: 0;
+    font-size: $expand-input-font-size;
+    line-height: $expand-input-height;
+    outline: 0;
   }
 }
