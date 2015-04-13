@@ -618,7 +618,7 @@
               <tr><td class="table-top" colspan="2"></td></tr>
               <tr class="highlight">
                 <th>选变量：</th>
-                <td class="highlight-content">
+                <td>
                   <label class="checkbox break">S1:用电量(亿万兆)</label><br>
                   <label class="checkbox break">S2:用电量</label><br>
                   <label class="checkbox break">S3:总人口(亿人)</label><br>
@@ -788,6 +788,279 @@
           </div>
         </div>
 
+        <div class="panel dialog">
+          <div class="dialog-header">
+            预分析
+            <span class="icon-bar">
+              <i class="icon-remove"></i>
+            </span>
+          </div>
+          <div class="dialog-content">
+            <table class="table-grid"><tbody>
+              <tr class="highlight-top"><td colspan="2"></td></tr>
+              <tr class="highlight">
+                <th>选变量：</th>
+                <td class="highlight-content">
+                  <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
+                  <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
+                  <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
+                  <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
+                  <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
+                </td>
+              </tr>
+            </tbody></table>
+            <div class="more-block">
+              <div class="more-row">
+                <fieldset class="table-fieldset" style="width:378px;height:64px;">
+                  <legend>平行检验：</legend>
+                  <label class="label-font">方法：</label>
+                  <div class="select-control" style="width:120px;margin-right:30px;">
+                    <div class="select-input selected">主成分分析</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">99</div>
+                      </div>
+                    </div>
+                  </div>
+                  <label class="label-font">迭代次数：</label>
+                  <div class="select-control" style="width:60px;">
+                    <div class="select-input selected">20</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">99</div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <fieldset class="table-fieldset" style="width:378px;height:76px;">
+                <legend>相关矩阵：</legend>
+                <label class="checkbox break" style="margin-right:30px;">系数 显著性水平</label>
+                <label class="checkbox break">反映像矩阵</label><br>
+                <label class="checkbox break">KMO和Bartlett球形检验</label>
+              </fieldset>
+            </div>
+          </div>
+          <div class="dialog-bottom">
+            <button class="tiny cancel">取消</button>
+            <button class="small confirm disabled">确定</button>
+          </div>
+        </div>
+
+        <div class="panel dialog" style="">
+          <div class="dialog-header">
+            指数平滑
+            <span class="icon-bar">
+              <i class="icon remove"></i>
+            </span>
+          </div>
+          <div class="dialog-content">
+            <table class="table-grid"><tbody>
+              <tr>
+                <th>选变量：</th>
+                <td class="table-right">
+                  <div class="select-control" style="">
+                    <div class="select-input">请选择</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">99</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>选方法：</th>
+                <td class="table-right">
+                  <div class="select-control" style="width:200px;">
+                    <div class="select-input selected">单指数平滑</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">99</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>范围：</th>
+                <td class="table-right">
+                  <div class="select-control" style="width:70px;">
+                    <div class="select-input selected">1999年</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">地三鲜</div>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="select-copulation"></span>
+                  <div class="select-control" style="width:70px;">
+                    <div class="select-input selected">2001年</div>
+                     <div class="select-dropdown" style="display:none;">
+                       <div class="select-dropdown-content">
+                         <div class="option">地三鲜</div>
+                       </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>预测到：</th>
+                <td class="table-right">
+                  <div class="select-control" style="width:70px;">
+                    <div class="select-input selected">2003年</div>
+                     <div class="select-dropdown" style="display:none;">
+                       <div class="select-dropdown-content">
+                         <div class="option">地三鲜</div>
+                       </div>
+                    </div>
+                  </div>
+                  <label style="margin-left:30px;">预测区间置信水平：</label>
+                  <div class="select-control" style="width:60px;">
+                    <div class="select-input selected">99%</div>
+                     <div class="select-dropdown" style="display:none;">
+                       <div class="select-dropdown-content">
+                         <div class="option">地三鲜</div>
+                       </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody></table>
+            <div class="more-block">
+              <fieldset class="table-fieldset" style="width:190px;height:116px;">
+                <legend>平滑参数：</legend>
+                <label class="checkbox break" style="margin-right:30px;">Alpha</label>
+                <input type="text" disabled style="margin:0;" value="sq"><br>
+                <label class="checkbox break" style="margin-right:38px;">Beta</label>
+                <input type="text" disabled style="margin:0;" value="sq"><br>
+                <label class="checkbox break" style="margin-right:23px;">Gamma</label><input disabled type="text" style="margin:0;" value="sq">
+              </fieldset>
+              <fieldset class="table-fieldset right" style="width:182px;height:116px;">
+                <legend>因变量转换：</legend>
+                <label class="radio selected">默认</label><br>
+                <label class="radio">平方根</label><br>
+                <label class="radio">自然对数转换</label>
+              </fieldset>
+            </div>
+          </div>
+          <div class="dialog-bottom">
+            <button class="tiny cancel">取消</button>
+            <button class="small confirm disabled">确定</button>
+          </div>
+        </div>
+
+        <div class="panel dialog">
+          <div class="dialog-header">
+            主成分分析
+            <span class="icon-bar">
+              <i class="icon remove"></i>
+            </span>
+          </div>
+          <div class="dialog-content">
+            <table class="table-grid"><tbody>
+              <tr><td class="table-top" colspan="2"></td></tr>
+              <tr class="highlight">
+                <th>选变量：</th>
+                <td class="highlight-content">
+                  <label class="checkbox break">S5：选电量(亿千瓦每小时)</label><br>
+                  <label class="checkbox break">S1：选电量(亿千瓦每小时)</label><br>
+                  <label class="checkbox break">S2：选电量(亿千瓦每小时)</label><br>
+                  <label class="checkbox break">S5：选电量(亿千瓦每小时)</label><br>
+                </td>
+              </tr>
+              <tr><td class="table-top" colspan="2"></td></tr>
+              <tr><td colspan="2" style="padding:0;">
+                <input class="expand-input" type="text" placeholder="请输入主成分数目" value="">
+              </td></tr>
+            </tbody></table>
+            <div class="more-block">
+              <div class="more-row">
+                <label class="label-font">分析：</label>&nbsp;&nbsp;
+                <span class="radio selected">相关矩阵</span><span class="radio">协方差矩阵</span>
+              </div>
+              <label class="label-font">旋转：</label>&nbsp;&nbsp;
+              <div class="select-control" style="width:120px;">
+                <div class="select-input selected">不旋转</div>
+                 <div class="select-dropdown" style="display:none;">
+                   <div class="select-dropdown-content">
+                     <div class="option">地三鲜</div>
+                   </div>
+                </div>
+              </div>
+              <div class="more-row">
+                <label class="label-font">得分：</label>&nbsp;&nbsp;
+                <div class="select-control" style="width:120px;">
+                  <div class="select-input selected">回归</div>
+                   <div class="select-dropdown" style="display:none;">
+                     <div class="select-dropdown-content">
+                       <div class="option">地三鲜</div>
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dialog-bottom">
+            <button class="tiny cancel">取消</button>
+            <button class="small confirm disabled">确定</button>
+          </div>
+        </div>
+
+        <div class="panel dialog" style="">
+          <div class="dialog-header">
+            自相关分析
+            <span class="icon-bar">
+              <i class="icon remove"></i>
+            </span>
+          </div>
+          <div class="dialog-content" style="height:320px;">
+            <table class="table-grid"><tbody>
+              <tr>
+                <th>选变量：</th>
+                <td class="table-right">
+                  <div class="select-control" style="">
+                    <div class="select-input">请选择</div>
+                    <div class="select-dropdown" style="display:none;">
+                      <div class="select-dropdown-content">
+                        <div class="option">99</div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody></table>
+            <div class="more-block" style="margin-top:-10px;">
+              <div class="more-row">
+                <fieldset class="table-fieldset" style="width:180px;height:115px;">
+                  <legend>输入：</legend>
+                  <label class="checkbox selected break">自相关</label><br>
+                  <label class="checkbox selected break">偏自相关</label><br>
+                </fieldset>
+                <fieldset class="table-fieldset right" style="width:190px;height:115px;">
+                  <legend>序列处理：</legend>
+                  <label class="checkbox break">自然对数转换</label><br>
+                  <label class="checkbox break" style="margin-right:46px;">差分</label><input type="text" disabled style="margin:0;" value="1"><br>
+                  <label class="checkbox break" style="margin-right:10px;">季节性差分</label><input type="text" disabled style="margin:0;" value="1">
+                </fieldset>
+              </div>
+              <label class="">最大滞后阶数：</label>
+              <div class="select-control" style="width:60px;">
+                <div class="select-input selected">10</div>
+                <div class="select-dropdown" style="display:none;">
+                  <div class="select-dropdown-content">
+                    <div class="option">99</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dialog-bottom">
+            <button class="tiny cancel">取消</button>
+            <button class="small confirm disabled">确定</button>
+          </div>
+        </div>
+
       </div><!-- 平台容器块结束 -->
       <div id="plat-body-footer">
         <span class="tabs-item selected fn-fonthid">啊哈哈哈哈哈啊哈哈哈<i class="icon-m-close"></i></span><span class="tabs-item fn-fonthid" title="在阴暗中默默的吃着胡萝卜">在阴暗中默默的吃着胡萝卜<i class="icon-m-close"></i></span><span class="tabs-item fn-fonthid">吃就吃你别乱扔啊!!<i class="icon-m-close"></i></span>
@@ -856,71 +1129,6 @@
     <span class="font-block">零值</span>
     <span class="font-block">自定义</span>
   </div>
-
-  <div class="panel dialog" style="top:10%; left:30%">
-    <div class="dialog-header">
-      预分析
-      <span class="icon-bar">
-        <i class="icon-remove"></i>
-      </span>
-    </div>
-    <div class="dialog-content">
-      <table class="table-grid"><tbody>
-        <tr class="highlight-top"><td colspan="2"></td></tr>
-        <tr class="highlight">
-          <th>选变量：</th>
-          <td class="highlight-content">
-            <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
-            <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
-            <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
-            <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
-            <label class="checkbox break fn-fonthid">S2：总人口(万人)</label><br>
-          </td>
-        </tr>
-      </tbody></table>
-    </div>
-    <div class="dialog-bottom">
-      <button class="tiny cancel">取消</button>
-      <button class="small confirm disabled">确定</button>
-    </div>
-  </div>
-
-
-
-<!--   <div class="panel dialog" style="width:420px;top:0;left:35%;">
-    <div class="dialog-header">
-      搜索指标
-      <span class="icon-bar">
-        <i class="icon-remove"></i>
-      </span>
-    </div>
-    <div class="dialog-content">
-      <table><tbody>
-        <tr><td style="height:15px;padding:0;"></td></tr>
-        <tr class="highlight">
-          <td class="lateral" style="padding-top:0;padding-bottom:0;">
-          <input type="text" class="input-serch" value="人">
-          </td>
-        </tr>
-        <tr><td style="height:10px;padding:0;"></td></tr>
-        <tr class="highlight">
-          <td class="lateral">
-            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
-            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
-            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
-            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
-            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
-            <label class="checkbox">我是被搜索的什么什么指标指标指标</label>
-          </td>
-        </tr>
-      </tbody></table>
-    </div>
-    <div class="dialog-bottom">
-      <button class="tiny cancel">取消</button>
-      <button class="small confirm disabled">确定</button>
-    </div>
-  </div> -->
-
 
   <!-- 全局弹出块结束 -->
 </body>

@@ -19,24 +19,20 @@ $highlight-bg-color: $white;
 $more-block-input-item-right: rem-calc(20);
 $more-block-font-line-color: #3b9eff;
 
-$table-fieldset-top: rem-calc(15);
+$table-fieldset-top: rem-calc(13);
 $table-fieldset-padding: 0 10px 0 19px;
 $table-fieldset-input-item-bottom: rem-calc(12);
 $table-fieldset-border-color: #d3d7d9;
 $table-fieldset-bg-color: $white;
 
-$table-fieldset-input-height: rem-calc(22);
-$table-fieldset-input-width: rem-calc(38);
+$table-fieldset-input-height: rem-calc(24);
+$table-fieldset-input-width: rem-calc(40);
+$table-fieldset-input-padding-left: rem-calc(5);
 $table-fieldset-border-color: #d3d7d9;
+$table-fieldset-input-disabled-bg-color: #f0f0f0;
+$table-fieldset-input-disabled-border-color: #d3d7d9;
 
 $more-block-input-item-bottom: rem-calc(8);
-
-// $table-highlight-td-filling: rem-calc(14); // 内容相驳
-
-// $more-row-padding: rem-calc(15) 0 rem-calc(15) rem-calc(20);
-
-// $table-highlight-border-color: #d3d5d9;
-// $table-highlight-bg-color: $white;
 
 @include exports ("table") {
 
@@ -55,7 +51,8 @@ $more-block-input-item-bottom: rem-calc(8);
 
     tr + tr { th, td { padding-top: 0; } } // 清零
     tr.highlight, tr.highlight + tr { th, td { padding-top: $table-row-spacing; } }
-    td.table-top { padding-bottom: 0; padding-top: $table-margin-top; }
+    td.table-top { padding-bottom: 0; padding-top: $table-margin-top; } // 顶部清空下内边距
+    td.table-right { padding-left: $highlight-content-padding-left; } // 右侧内容区
 
     // 单容器
     .table-grid-single {
@@ -88,8 +85,15 @@ $more-block-input-item-bottom: rem-calc(8);
       outline: 0;
       height: $table-fieldset-input-height;
       width: $table-fieldset-input-width;
-      border: 1px solid $table-fieldset-border-color;
+      // padding-left: $table-fieldset-input-padding-left;
       margin-right: 20px;
+      border: 1px solid $table-fieldset-border-color;
+      text-align: center;
+
+      &.disabled, &[disabled] {
+        border-color: $table-fieldset-input-disabled-border-color;
+        background-color: $table-fieldset-input-disabled-bg-color;
+      }
     } 
   }
 
