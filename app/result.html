@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="edge">
+  <link rel="stylesheet" href="styles/result.css">
+  <title>分析结果</title>
+</head>
+<body>
+  <div id="result-container">
+    <h1>分析预测结果</h1>
+    <span class="icon-bar"><i class="icon"></i></span>
+    <div>
+      <h2 class="font-line">变量说明</h2>
+      <p>[因变量] S1:用电量(亿千瓦时)</p>
+      <p>[因变量] S2:GDP(亿元)</p>
+    </div>
+    <div>
+      <h2 class="font-line">方程</h2>
+      <p>S1*=7516.221 + 0.085*S2</p>
+    </div>
+    <div>
+      <h2 class="font-line">模型汇总</h2>
+      <table><tbody>
+        <tr>
+          <th>R</th>
+          <th>R<sup>2</sup></th>
+          <th>调整的R<sup>2</sup></th>
+          <th>估计标准误差</th>
+          <th>D-W统计量</th>
+        </tr>
+        <tr>
+          <td>0.990</td>
+          <td>0.981</td>
+          <td>0.990</td>
+          <td>1771.175</td>
+          <td>0.364</td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div>
+      <h2 class="font-line">模型系数</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th rowspan="2"></th>
+            <th colspan="2">伪标准化系数</th>
+            <th rowspan="2">标准化系数</th>
+          </tr>
+          <tr>
+            <th>系数</th>
+            <th>调整的R</th>
+          </tr>
+          <tr>
+            <td>常数</td>
+            <td>0.981</td>
+            <td>0.979</td>
+            <td>1771.175</td>
+          </tr>
+          <tr>
+            <td>S2</td>
+            <td>0.981</td>
+            <td>0.979</td>
+            <td>1771.175</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>注释内容</p>
+      <p>提示什么</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <p><label>描述:</label>给你讲了一大堆......</p>
+    <p><label>判断:</label>告诉你怎么判断啊啊爱的色放<p>
+  </div>
+</body>
+</html>

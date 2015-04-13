@@ -1,0 +1,19 @@
+// 结果页引入
+
+@import "normalize.scss";
+@import "components/_global.scss";
+@import "components/_inline-style.scss";
+
+$result-container-height: 100%;
+$result-container-width: rem-calc(982);
+
+#result-container {
+  height: $result-container-height;
+  width: $result-container-width;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+th, td {
+  border: 1px solid orange;
+}
