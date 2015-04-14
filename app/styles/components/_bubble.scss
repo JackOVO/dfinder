@@ -1,0 +1,43 @@
+@import "global";
+// 气泡
+
+$bubble-padding: rem-calc(10);
+$bubble-angle-width: rem-calc(12);
+$bubble-border-color: #3b9eff;
+$bubble-bg-color: rgba(135, 196, 255, .8);
+
+@include exports ("bubble") {
+
+  .bubble {
+    display: inline-block;
+    padding: $bubble-padding;
+    border: 1px solid $bubble-border-color;
+    border-radius: 3px;
+    background-color: $bubble-bg-color;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      width: $bubble-angle-width;
+      height: $bubble-angle-width;
+      border: 1px solid $bubble-border-color;
+      background-color: $bubble-bg-color;
+      transform: rotate(45deg);
+    }
+
+    &.bubble-left::before {
+      top: $bubble-padding + ($bubble-angle-width / 2);
+      left: -($bubble-angle-width / 2 + rem-calc(1));
+      border-top: 0; border-right: 0;
+    }
+    &.bubble-right::before {
+      right: -($bubble-angle-width / 2 + rem-calc(1));
+      border-bottom: 0; border-left: 0;
+    }
+    &.bubble-middle::before {
+      top: 50%;
+      margin-top: -($bubble-angle-width / 2);
+    }
+  }
+}

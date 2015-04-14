@@ -21,6 +21,7 @@
 
 $plat-side-width: 230px;
 $plat-side-top-height: 100px;
+$plat-side-top-padding-top: 18px;
 
 $plat-body-info-width: 290px;
 $plat-body-hander-height: 78px;
@@ -48,12 +49,13 @@ $plat-body-footer-bg-color: #f0f0f0;
 
     @at-root #plat-side-top {
       height: $plat-side-top-height;
-      padding-top: 20px;
+      padding-top: $plat-side-top-padding-top;
       margin-top: -$plat-side-top-height;
+      line-height: 1;
       text-align: center;
 
       // 控制提交按钮间隔
-      > .submit { margin-top: 12px; }
+      > .submit { margin-top: 0; }
     }
 
     @at-root #plat-side-content {
@@ -127,10 +129,13 @@ $plat-body-footer-bg-color: #f0f0f0;
       padding: $plat-body-footer-padding;
       border-top: 1px solid $plat-body-footer-border-color;
       background-color: $plat-body-footer-bg-color;
+
+      > .icon-btn {
+        height: 30px;
+        margin-left: 10px;
+        background-position: 0 45%;
+        vertical-align: middle;
+      }
     }
   }
-}
-
-* {
-  // outline: 1px solid orange;
 }

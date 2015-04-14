@@ -9,26 +9,30 @@
 </head>
 <body>
   <div id="result-container">
-    <h1>分析预测结果</h1>
-    <span class="icon-bar"><i class="icon"></i></span>
-    <div>
-      <h2 class="font-line">变量说明</h2>
-      <p>[因变量] S1:用电量(亿千瓦时)</p>
-      <p>[因变量] S2:GDP(亿元)</p>
+    <div id="result-header">
+      <h1 id="result-title">分析预测分析结果</h1>
+      <span class="icon-bar">
+        <i class="icon-btn icon-round download"></i><i class="icon-btn icon-round share"></i>
+      </span>
     </div>
-    <div>
-      <h2 class="font-line">方程</h2>
+    <div class="result-part">
+      <h2 class="part-name font-line">变量说明</h2>
+      <span>[因变量] S1:用电量(亿千瓦时)</span><br>
+      <span>[因变量] S2:GDP(亿元)</span>
+    </div>
+    <div class="result-part">
+      <h2 class="part-name font-line">方程</h2>
       <p>S1*=7516.221 + 0.085*S2</p>
     </div>
-    <div>
-      <h2 class="font-line">模型汇总</h2>
-      <table><tbody>
+    <div class="result-part">
+      <h2 class="part-name font-line">模型汇总</h2>
+      <table class="result-table"><tbody>
         <tr>
           <th>R</th>
-          <th>R<sup>2</sup></th>
-          <th>调整的R<sup>2</sup></th>
+          <th class="icon-th">R<sup>2</sup><i class="icon-btn info-min"></i></th>
+          <th class="icon-th">调整的R<sup>2</sup><i class="icon-btn info-min"></i></th>
           <th>估计标准误差</th>
-          <th>D-W统计量</th>
+          <th class="icon-th">D-W统计量<i class="icon-btn info-min"></i></th>
         </tr>
         <tr>
           <td>0.990</td>
@@ -38,42 +42,27 @@
           <td>0.364</td>
         </tr>
       </tbody></table>
+      <span class="prompt-font">提示内容</span>
     </div>
-    <div>
-      <h2 class="font-line">模型系数</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th rowspan="2"></th>
-            <th colspan="2">伪标准化系数</th>
-            <th rowspan="2">标准化系数</th>
-          </tr>
-          <tr>
-            <th>系数</th>
-            <th>调整的R</th>
-          </tr>
-          <tr>
-            <td>常数</td>
-            <td>0.981</td>
-            <td>0.979</td>
-            <td>1771.175</td>
-          </tr>
-          <tr>
-            <td>S2</td>
-            <td>0.981</td>
-            <td>0.979</td>
-            <td>1771.175</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>注释内容</p>
-      <p>提示什么</p>
+    <div class="result-part">
+      <h2 class="part-name font-line">模型系数</h2>
+      <table class="result-table"><tbody>
+        <tr>
+          <th rowspan="2"></th>
+          <th colspan="2">伪标准化系数</th>
+          <th rowspan="2" class="icon-th">标准化系数<i class="icon-btn info-min"></i></th>
+        </tr>
+        <tr><th>系数</th><th>调整的R</th></tr>
+        <tr><td>常数</td><td>0.981</td><td>0.979</td><td>1771.175</td></tr>
+        <tr><td>S2</td><td>0.981</td><td>0.979</td><td>1771.175</td></tr>
+      </tbody></table>
+      <span class="note-font">注释内容</span>
     </div>
   </div>
 
-  <div class="panel">
-    <p><label>描述:</label>给你讲了一大堆......</p>
-    <p><label>判断:</label>告诉你怎么判断啊啊爱的色放<p>
+  <div class="panel bubble bubble-left" style="top:355px;left:690px;width:300px;height:142px;">
+    <p class="result-info"><label>描述：</label>这里放描述的文字内容, 还不是给自己看.</p>
+    <p class="result-info"><label>判断：</label>这里放判断的文字内容, 爱看不看.Internet Explorer 10、Firefox、Opera 支持 transform 属性。Internet Explorer 9 支持替代的 -ms-transform 属性（仅适用于 2D 转换）。Safari 和 Chrome 支持替代的 -webkit-transform 属...</p>
   </div>
 </body>
 </html>

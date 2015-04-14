@@ -1,5 +1,10 @@
 @import "global";
 
+$note-font-size: rem-calc(12);
+$font-line-color: #ebdee0;
+$note-font-color: #87898b;
+$prompt-font-color: #ff5c54;
+
 @include exports ("inline-style") {
 
   // 线字线:)
@@ -35,7 +40,7 @@
       display: inline-block;
       width: 100%;
       margin-left: 10px;
-      border-top: 1px solid #ebdee0;
+      border-top: 1px solid $font-line-color;
     }
 
     &.dashed:after { border-top-style: dashed; }
@@ -46,5 +51,20 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .note-font { // 注释内容
+    display: inline-block;
+    margin-left: -5px; // 抵消中文字符空白
+    font-size: $note-font-size;
+    color: $note-font-color;
+    &::before { content: "【注】"; }
+  }
+  .prompt-font { // 提示内容
+    display: inline-block;
+    margin-left: -5px; // 抵消中文字符空白
+    font-size: $note-font-size;
+    color: $prompt-font-color;
+    &::before { content: "【提示】"; }
   }
 }

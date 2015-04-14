@@ -32,9 +32,31 @@ $table-fieldset-border-color: #d3d7d9;
 $table-fieldset-input-disabled-bg-color: #f0f0f0;
 $table-fieldset-input-disabled-border-color: #d3d7d9;
 
+$result-table-padding: rem-calc(6) rem-calc(20);
+$result-table-icon-th-margin: rem-calc(-3) rem-calc(-10) 0 rem-calc(10);
+$result-table-border-color: #a4a4a5;
+$result-table-header-bg-color: #f0f0f0;
+
 $more-block-input-item-bottom: rem-calc(8);
 
 @include exports ("table") {
+
+  .result-table {
+    td, th {
+      padding: $result-table-padding;
+      border: 1px solid $result-table-border-color;
+      text-align: center;
+    }
+    th { background-color: $result-table-header-bg-color; }
+    th.icon-th {
+      .icon, .icon-btn {
+        margin: $result-table-icon-th-margin;
+        vertical-align: middle;
+        opacity: .6;
+        &:hover { opacity: 1; }
+      }
+    }
+  }
 
   .table-grid { // 表格格子
     th { 
@@ -144,25 +166,4 @@ $more-block-input-item-bottom: rem-calc(8);
     .font-line + .more-row { padding-top: 0; }
 
   }
-
-    // .input-label {
-  //   display: inline-block;
-  //   margin-bottom: $checkbox-maring-bottom;
-  //   line-height: 1;
-  //   color: $black;
-  // }
-
-  // .input-text, .input-text-l { // 小块输入
-  //   width: $input-text-width;
-  //   height: $input-text-height;
-  //   margin-right: $input-text-margin-right;
-  //   border: 1px solid $input-text-border-color;
-  // }
-  // .input-text-l { margin-right: 10px; }
-  // .input-serch {
-  //   width: 100%;
-  //   font-size: 16px;
-  //   line-height: 38px;
-  //   border: 0; outline: 0;
-  // }
 }

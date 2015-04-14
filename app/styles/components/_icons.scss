@@ -8,15 +8,23 @@ $icon-base-img-key: "icon-collecion";
 
 // 图片路径的映射
 $icon-image-map: (
-  "row": "../icons/row.png",
-  "arrow": "../icons/arrow.png",
-  "triangle": "../icons/triangle.png",
-  "arrow-min": "../icons/arrow-min.png",
-  "close-min": "../icons/close-min.png",
-  "search-min": "../icons/search-min.png",
-  "selected": "../icons/selected.png",
-  "row-hover": "../icons/row-hover.png",
-  "icon-collecion": "../icons/icon-collecion.png",
+  "row": "../icons/row.png", // 行状态
+  "arrow": "../icons/arrow.png", // 角
+  "triangle": "../icons/triangle.png", //等边三角
+  "arrow-min": "../icons/arrow-min.png", // 小三角
+  "close-min": "../icons/close-min.png", // 小关闭
+  "search-min": "../icons/search-min.png", // 小搜索
+  "selected": "../icons/selected.png", // 上下三角
+  "row-hover": "../icons/row-hover.png", // 行hover
+  "info-min": "../icons/analysis-info.png", // 蓝色叹号小
+  "download": "../icons/download.png", // 下载
+  "share": "../icons/share.png", // 分享
+  "line-chart": "../icons/line-chart.png", // 折线图表
+  "bar-chart": "../icons/bar-chart.png", // 柱形图
+  "pie-chart": "../icons/pie-chart.png", // 饼状图
+  "area-chart": "../icons/area-chart.png", // 面积图
+  "add-sheet": "../icons/add-sheet.png",
+  "icon-collecion": "../icons/icon-collecion.png", // 集合容器
 );
 
 // 控制图标的尺寸
@@ -119,7 +127,20 @@ $icon-image-map: (
     &.col { @include rotate2d(90deg); }
     &.remove { @include icon-image("icon-collecion", (-123px, -87px), 16px, 16px); }
     &.remove:hover { @include icon-image("icon-collecion", (-144px, -87px), 16px, 16px); }
+
     &.arrow-min-down { @include icon-image("arrow-min", (0, 0), 3px, 5px); }
+    &.add-sheet { @include icon-image("add-sheet", (0, 0), 18px, 18px);}
+    &.info-min { @include icon-image("info-min", (0, 0), 14px, 14px); }
+    &.download { @include icon-image("download", (0, 0), 20px, 17px); }
+  }
+  .icon-round {
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+    border: 1px solid gray;
+
+    &.download {@include icon-image("download", (9px, 5px), 36px, 36px); }
+    &.share {@include icon-image("share", (7px, 6px), 36px, 36px); }
   }
 
   // 16 * 16
@@ -135,6 +156,10 @@ $icon-image-map: (
   .icon-center { @include icon-abs-before($img-abs    :(-294px, -24px)); }
   .icon-bg { @include icon-abs-before($img-abs        :(-259px, -55px)); }
   .icon-filter { @include icon-abs-before($img-abs    :(-19px, -55px)); }
+  .icon-line-c { @include icon-abs-before($img-key:"line-chart", $img-abs:(0, -10px)); };
+  .icon-bar-c { @include icon-abs-before($img-key:"bar-chart", $img-abs:(0, -10px)); };
+  .icon-pie-c { @include icon-abs-before($img-key:"pie-chart", $img-abs:(0, -10px)); };
+  .icon-area-c { @include icon-abs-before($img-key:"area-chart", $img-abs:(0, -10px)); };
   .icon-e { @include icon-abs-before($img-abs         :(-53px, -55px)); }
   .icon-percentage { @include icon-abs-before($img-abs:(-88px, -55px)); }
   .icon-kp { @include icon-abs-before($img-abs        :(-157px, -55px)); }
