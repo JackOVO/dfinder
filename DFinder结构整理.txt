@@ -1,0 +1,18 @@
+大大的惊喜, 什么叫她妈的惊喜, 同内存与数据库的关系.(前台->后台)
+
+1. WorkBook: 工作簿
+    var selectedId - 选中的工作表ID
+    var sheets[] - 存放所有工作表
+    // 初始化的条件?
+    // 操作记录?
+2. Sheet: 工作表
+    var id - 唯一标识(后台提供, 自检验证)
+    var name - 工作表的名称
+    var table{} - 存放表格对象
+    // 是否与后台同步?
+3. Table: 表格
+    var data[][] - 伪二维数组数据
+    var cellsType[] - 记录单元格样式(更抽象的样式)
+    var mergeCells[] - 记录合并单元格位置
+    var fixedRowsTop - 冻结行
+    var fixedColumnsLeft - 冻结列;
