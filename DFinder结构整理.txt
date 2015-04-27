@@ -1,5 +1,6 @@
 大大的惊喜, 什么叫她妈的惊喜, 同内存与数据库的关系.(前台->后台)
 
+/-------------------维度调整-----------------------/
 1. WorkBook: 工作簿
     var selectedId - 选中的工作表ID
     var sheets[] - 存放所有工作表
@@ -8,7 +9,7 @@
 2. Sheet: 工作表
     var id - 唯一标识(后台提供, 自检验证)
     var name - 工作表的名称
-    var table{} - 存放表格对象
+    var Table - 存放表格对象
     // 是否与后台同步?
 3. Table: 表格
     var data[][] - 伪二维数组数据
@@ -16,3 +17,23 @@
     var mergeCells[] - 记录合并单元格位置
     var fixedRowsTop - 冻结行
     var fixedColumnsLeft - 冻结列;
+4. Node: 条件节点
+    var id - 唯一标识
+    var name - 节点名称
+    var checked - 选中状态
+    var disabled - 禁用状态
+    var children[] - 节点子集
+5. Dimension: 维度
+    var id - 唯一标识(后台提供)
+    var name - 维度名称
+    var weights - 权重值排序用
+    var Node(root) - 维度根节点
+6. DimensionFactor: 维度条件
+    var dimensions[] - 存放维度中选中的节点
+    var metaColumn[] - 行维度代码
+    var metaRow[] - 列维度代码
+    var productID - 产品ID???
+7. DimensionSheet:Inherit Sheet 维度工作表
+    var dimensions[] - 存放维度信息
+    var factorCache[] - 维度条件缓存
+/------------------维度调整----------------------/
